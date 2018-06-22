@@ -46,7 +46,7 @@ body
     display: flex
     align-items: center
     width: 100%
-    min-width: 380px
+    min-width: 320px
     padding: 0 3vw
     background: #fff
     position: fixed
@@ -139,8 +139,9 @@ body
       position: relative
       z-index: 1
       width: 80%
-      min-width: 400px
-      min-height: 225px
+      $m_width: 300px
+      min-width: $m_width
+      min-height: calc(#{$m_width}/16*9)
       height: 0
       padding-bottom: 56.25%
       #video 
@@ -177,8 +178,8 @@ body
           padding-left: 7em
           padding-right: 7em
         @media screen and (max-width: 700px)
-          padding-left: 3em
-          padding-right: 3em
+          padding-left: 2em
+          padding-right: 2em
       a 
         display: inline-block
         width: 40%
@@ -187,6 +188,7 @@ body
         margin-bottom: 1em
         background: $button-color
         color: black
+        min-width: 120px
         @media screen and (max-width: 960px)
           width: 25%
         &:hover
@@ -212,7 +214,7 @@ body
         box-shadow: none
         @media screen and (max-width: 550px)
           font-size: 0.8rem 
-          padding: 1 2em
+          padding: 1em 2em
       input[type="submit"]
         width: 50%
         border: none
@@ -220,6 +222,7 @@ body
         color: black
         padding: 1em 2em
         font-size: 1rem
+        -webkit-appearance: none
         &:hover
           background-color: darken($button-color, 10%)
           cursor: pointer
@@ -233,4 +236,3 @@ body
     background: #b3cde0
     h5 
       margin-bottom: 0.2em
-

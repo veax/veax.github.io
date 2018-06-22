@@ -45,7 +45,7 @@ body header#header {
   display: flex;
   align-items: center;
   width: 100%;
-  min-width: 380px;
+  min-width: 320px;
   padding: 0 3vw;
   background: #fff;
   position: fixed;
@@ -205,8 +205,8 @@ body section#showcase .responsive {
   position: relative;
   z-index: 1;
   width: 80%;
-  min-width: 400px;
-  min-height: 225px;
+  min-width: 300px;
+  min-height: calc(300px/16*9);
   height: 0;
   padding-bottom: 56.25%;
 }
@@ -271,8 +271,8 @@ body section#pricing .price-card p {
 
 @media screen and (max-width: 700px) {
   body section#pricing .price-card p {
-    padding-left: 3em;
-    padding-right: 3em;
+    padding-left: 2em;
+    padding-right: 2em;
   }
 }
 
@@ -284,6 +284,7 @@ body section#pricing .price-card a {
   margin-bottom: 1em;
   background: #ffbf00;
   color: black;
+  min-width: 120px;
 }
 
 @media screen and (max-width: 960px) {
@@ -325,7 +326,7 @@ body section#order form input[type="email"] {
 @media screen and (max-width: 550px) {
   body section#order form input[type="email"] {
     font-size: 0.8rem;
-    padding: 1 2em;
+    padding: 1em 2em;
   }
 }
 
@@ -336,6 +337,7 @@ body section#order form input[type="submit"] {
   color: black;
   padding: 1em 2em;
   font-size: 1rem;
+  -webkit-appearance: none;
 }
 
 body section#order form input[type="submit"]:hover {
