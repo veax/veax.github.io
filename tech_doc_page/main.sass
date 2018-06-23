@@ -1,0 +1,124 @@
+// FONTS
+@import url('https://fonts.googleapis.com/css?family=Lato')
+// VARIABLES
+$border-color: #808080
+$link-color: #00487C
+$bg-link-color: #eaeaea
+$footer-color: #bad2d6
+$primary-font: 'Lato', sans-serif
+// RESET
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  line-height: 1.6em
+ul 
+  list-style-type: none
+a 
+  text-decoration: none
+  color: $link-color
+  &:hover
+    cursor: pointer
+
+// STYLES
+body
+  font-family: $primary-font
+  .container
+    display: flex
+    @media screen and (max-width: 770px)
+      flex-direction: column
+    nav
+      width: 20vw
+      min-width: 200px
+      border-right: 2px solid $border-color
+      position: fixed
+      z-index: 1
+      height: 100%
+      top: 0
+      left: 0
+      overflow-y: scroll
+      @media screen and (max-width: 770px)
+        position: static
+        width: 100%
+        overflow-y: hidden
+        border-right: 0
+      header
+        text-align: center
+        padding: 1em 0
+        h1
+          font-weight: 500
+      ul 
+        border-top: 1px solid $border-color
+        @media screen and (max-width: 770px)
+          height: 200px 
+          overflow-y: scroll
+          border-bottom: 2px solid $border-color
+          border-right: 2px solid $border-color
+        a.nav-link
+          display: inline-block
+          border-bottom: 1px solid $border-color
+          width: 100%
+          padding: 0.5em 0
+          text-align: center
+          &:hover
+            background: $bg-link-color
+    main 
+      flex: 1
+      display: flex
+      flex-direction: column
+      margin-left: 20vw
+      align-items: center
+      @media screen and (max-width: 900px)
+        margin-left: 200px
+      @media screen and (max-width: 770px)
+        margin-left: 5%
+        margin-right: 5%
+        align-items: flex-start
+      section
+        width: 90%
+        padding: 1em 5em 1em 0
+        @media screen and (max-width: 770px)
+          width: 90%
+          padding-right: 0
+        header
+          padding: 1em 0
+          h3
+            font-size: 1.5em
+            font-weight: 500
+        p 
+          padding-left: 2em
+          margin: 1em 0
+          @media screen and (max-width: 770px)
+            padding-left: 1em
+        ul 
+          padding-left: 3em
+          list-style-type: disc
+          list-style-position: inside
+          li 
+            margin: 1em 0 
+        pre
+          background: #f0f0f0
+          margin-left: 5.5em
+          width: 80%
+          padding-top: 1.6em
+          white-space: no-wrap
+          overflow-x: scroll
+          @media screen and (max-width: 900px)
+            margin-left: 2.5em
+            width: 100%
+          @media screen and (max-width: 900px)
+            margin-left: 1em
+  
+  footer 
+    margin-top: 3em
+    margin-left: 20vw
+    padding: 1em 0
+    text-align: center
+    background: $footer-color
+    @media screen and (max-width: 900px)
+      margin-left: 200px
+    @media screen and (max-width: 770px)
+      margin-left: 0
+      padding: 1em 2em
+    a:hover 
+      text-decoration: underline
