@@ -45,7 +45,7 @@ body header#header {
   display: flex;
   align-items: center;
   width: 100%;
-  min-width: 320px;
+  min-width: 300px;
   padding: 0 3vw;
   background: #fff;
   position: fixed;
@@ -205,8 +205,8 @@ body section#showcase .responsive {
   position: relative;
   z-index: 1;
   width: 80%;
-  min-width: 300px;
-  min-height: calc(300px/16*9);
+  min-width: 250px;
+  min-height: calc(250px/16*9);
   height: 0;
   padding-bottom: 56.25%;
 }
@@ -312,21 +312,29 @@ body section#order form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 30%;
+  width: 40%;
+  min-width: 250px;
 }
 
 body section#order form input[type="email"] {
   width: 100%;
   font-size: 1rem;
-  padding: 1em 3em;
+  padding: 1em 0;
+  text-align: center;
   margin-bottom: 2em;
   box-shadow: none;
+}
+
+@media screen and (max-width: 900px) {
+  body section#order form input[type="email"] {
+    padding: 1.5em 0;
+    font-size: 0.8em;
+  }
 }
 
 @media screen and (max-width: 550px) {
   body section#order form input[type="email"] {
     font-size: 0.8rem;
-    padding: 1em 2em;
   }
 }
 
@@ -335,7 +343,8 @@ body section#order form input[type="submit"] {
   border: none;
   background: #ffbf00;
   color: black;
-  padding: 1em 2em;
+  padding: 1em 0;
+  text-align: center;
   font-size: 1rem;
   -webkit-appearance: none;
 }
