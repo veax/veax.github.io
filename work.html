@@ -1,0 +1,16 @@
+---
+layout: work_outer
+title: Work
+order: 3
+---
+
+<div class="works_container">
+  {% for work in site.works %}
+  <a href="{{site.baseurl}}works/{{work.slug}}" class="work">
+    <div class="work_bg" style="background: url({{work.img-url}}) no-repeat center center;background-size: contain;"></div>
+    <h4>{{work.title}}</h4>
+  </a>
+  {% endfor %}
+</div>
+
+

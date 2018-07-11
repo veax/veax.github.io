@@ -1,0 +1,40 @@
+# Dependencies
+highlighter:      pygments
+# Permalinks
+permalink:        pretty
+
+# Setup
+title:            veax
+tagline:          'A Personal Page'
+description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
+url:              http://hyde.getpoole.com
+baseurl:          /
+
+author:
+  name:           'Mark Otto'
+  url:            https://twitter.com/mdo
+
+
+# Custom vars
+socials_links:
+- url: https://github.com/veax
+  class: fab fa-github
+- url: https://www.facebook.com/profile.php?id=100001788716921
+  class: fab fa-facebook-square
+- url: https://vk.com/id151991161
+  class: fab fa-vk
+- url: https://www.instagram.com/veax/
+  class: fab fa-instagram
+
+
+github:
+  repo:           https://github.com/veax
+
+plugins: 
+  - jekyll-gist
+  - redcarpet
+
+collections:
+  works: 
+    output: true 
+
