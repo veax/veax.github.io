@@ -31,11 +31,12 @@
  * Update the foundational and global aspects of the page.
  */
 html {
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-family: 'PT Sans', 'Verdana', sans-serif;
+  /* Helvetica */
 }
 @media (min-width: 48em) {
   html {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 @media (min-width: 58em) {
@@ -125,7 +126,7 @@ a.sidebar-nav-item:focus {
   padding-bottom: 4rem;
 }
 
-@media (min-width: 48em) {
+@media (min-width: 48.05em) {
   .content {
     max-width: 38rem;
     margin-left: 20rem;

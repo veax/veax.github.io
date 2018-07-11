@@ -1,132 +1,14 @@
-<!DOCTYPE html>
-<html lang="en-us">
-
-  <head>
-  <link href="http://gmpg.org/xfn/11" rel="profile">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-
-  <!-- Enable responsiveness on mobile devices-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-
-  <title>
-    
-      Hello &middot; A Jekyll theme
-    
-  </title>
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="/public/css/poole.css">
-  <link rel="stylesheet" href="/public/css/syntax.css">
-  <link rel="stylesheet" href="/public/css/hyde.css">
-  <link rel="stylesheet" href="/public/css/main.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
-
-  <!-- Icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="/public/favicon.ico">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-
-  <!-- RSS -->
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
-</head>
-
-
-  <body>
-
-    <div class="sidebar">
-  <div class="sidebar-sticky">
-    <div class="sidebar-about">
-      <!-- <h1>
-        Hello
-      </h1> -->
-      <!-- <p class="lead">A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.</p> -->
-    </div>
-
-    <nav class="sidebar-nav">
-      <a class="sidebar-nav-item active" href="/">Home</a>
-
-      
-
-      
-      
-        
-          
-        
-      
-        
-          
-        
-      
-        
-          
-          <a class="sidebar-nav-item" href="/work/">Work</a>
-          
-        
-      
-        
-          
-          <a class="sidebar-nav-item" href="/blog/">Blog</a>
-          
-        
-      
-        
-          
-          <a class="sidebar-nav-item" href="/contacts/">Contacts</a>
-          
-        
-      
-        
-          
-          <a class="sidebar-nav-item" href="/about/">About</a>
-          
-        
-      
-
-      <!-- <a class="sidebar-nav-item" href="https://github.com/poole/hyde/archive/v2.1.0.zip">Download</a>
-      <a class="sidebar-nav-item" href="https://github.com/poole/hyde">GitHub project</a>
-      <span class="sidebar-nav-item">Currently v2.1.0</span> -->
-    </nav>
-  </div>
-
-  <div class="socials">
-    <ul class="socials_links">
-      <li><a href="#"><i class="fab fa-github fa-2x"></i></a></li>
-      <li><a href="#"><i class="fab fa-google-plus-g fa-2x"></i></a></li>
-      <li><a href="#"><i class="fab fa-facebook-square fa-2x"></i></a></li>
-      <li><a href="#"><i class="fab fa-instagram fa-2x"></i></a></li>
-    </ul>
-  </div>
-</div>
-
-
-    <div class="content container">
-      <div class="bg_container">
+---
+layout: default
+title: Home
+order: 1
+---
+<div class="bg_container">
   <div id="particles-js">
     <div class="main_content">
       <h1>Hi, I`m Borisov Vadim</h1>
       <p>Fullstack-developer, photographer, musician</p>
-      <div class="socials_media">
-        <ul class="socials_links">
-          <li><a href="#"><i class="fab fa-github fa-2x"></i></a></li>
-          <li><a href="#"><i class="fab fa-google-plus-g fa-2x"></i></a></li>
-          <li><a href="#"><i class="fab fa-facebook-square fa-2x"></i></a></li>
-          <li><a href="#"><i class="fab fa-instagram fa-2x"></i></a></li>
-        </ul>
-      </div>
+      {% include socials.html socclass='socials_media'%}
     </div>
   </div>
 </div>
-
-    </div>
-    
-     
-      <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 
-      <script>
-        particlesJS.load('particles-js', '/assets/particlesjs-config.json', function(){
-          console.log('callback - particles.js config loaded');
-        });
-      </script>
-    
-  </body>
-</html>
