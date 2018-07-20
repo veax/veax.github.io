@@ -11,7 +11,7 @@
 
   <title>
     
-      Blog &middot; veax
+      Blog &middot; Borisov Vadim
     
   </title>
 
@@ -256,8 +256,30 @@ toggle(content);
 </script>
 
 </div>
+<a id="back_to_top" onclick="scrollToTop(700)"><i class="fas fa-arrow-circle-up"></i></a>
+<script>
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+      if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
+          document.getElementById("back_to_top").style.display = "block";
+      } else {
+          document.getElementById("back_to_top").style.display = "none";
+      }
+  }
+
+  function scrollToTop(scrollDuration) {
+    var scrollStep = -window.scrollY / (scrollDuration / 15),
+        scrollInterval = setInterval(function(){
+        if ( window.scrollY != 0 ) {
+            window.scrollBy( 0, scrollStep );
+        }
+        else clearInterval(scrollInterval); 
+        },15);
+  }
+  
+</script>
     </div>
-    
-    
+  
   </body>
 </html>

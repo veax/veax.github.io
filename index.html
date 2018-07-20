@@ -11,7 +11,7 @@
 
   <title>
     
-      veax &middot; A Personal Page
+      Borisov Vadim &middot; A Personal Page
     
   </title>
 
@@ -101,7 +101,13 @@
   <div id="particles-js">
     <div class="main_content">
       <h1>Hi, I`m Borisov Vadim</h1>
-      <p>Fullstack-developer, photographer, musician</p>
+      <div id="typed-strings">
+        <p>Fullstack-developer</p>
+        <p>Photographer</p>
+        <p>Musician</p>
+        <p>Traveller</p>
+      </div>
+      <span id="typed"></span>
       <div class="socials_media">
   <ul class="socials_links">
     
@@ -119,15 +125,23 @@
   </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 
+<script>
+  particlesJS.load('particles-js', '/assets/particlesjs-config.json', function(){
+    console.log('callback - particles.js config loaded');
+  });
+</script>
+<script src="assets/typed.js/typed.min.js"></script>
+<script>
+  var typed = new Typed('#typed', {
+    stringsElement: '#typed-strings',
+    backSpeed: 40,
+    typeSpeed: 40,
+    loop: true
+  });
+</script>
+
     </div>
-    
-     
-      <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 
-      <script>
-        particlesJS.load('particles-js', '/assets/particlesjs-config.json', function(){
-          console.log('callback - particles.js config loaded');
-        });
-      </script>
-    
+  
   </body>
 </html>

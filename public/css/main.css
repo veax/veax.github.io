@@ -147,6 +147,8 @@ ul.socials_links {
 
 .main_content {
   position: absolute; }
+  .main_content span {
+    color: #fff; }
 
 h2#categories {
   margin-top: 0;
@@ -186,6 +188,20 @@ h2#categories {
 
 .posts {
   margin-top: 1rem; }
+
+a#back_to_top {
+  display: none;
+  position: fixed;
+  right: 15px;
+  bottom: 20px;
+  color: #39b498;
+  opacity: 0.7;
+  transition: all 0.5s; }
+  a#back_to_top:hover {
+    color: #1fabc9;
+    opacity: 1; }
+  a#back_to_top .fa-arrow-circle-up {
+    font-size: 1.5rem; }
 
 .works_container {
   display: flex;
@@ -301,7 +317,8 @@ h2#categories {
     width: 100%;
     height: 15vh;
     min-height: 65px;
-    padding: 0; }
+    padding: 0;
+    background: rgba(35, 27, 36, 0.9); }
 
   .page, .post_inner {
     padding-top: 25vh;
@@ -333,7 +350,11 @@ h2#categories {
 
   .work_outer img {
     max-width: 90%;
-    height: auto; } }
+    height: auto; }
+
+  .works_container a .work_bg {
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%); } }
 @media (max-width: 26em) {
   .bg_container h1 {
     padding: 1rem;
