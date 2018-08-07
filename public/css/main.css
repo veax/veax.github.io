@@ -369,7 +369,7 @@ a#back_to_top .fa-arrow-circle-up {
 }
 
 .works_container a h4 {
-  margin-top: 0;
+  margin-top: 0.4em;
 }
 
 .work_outer {
@@ -405,6 +405,67 @@ a#back_to_top .fa-arrow-circle-up {
   margin: 2em auto;
 }
 
+.work_outer .work_container {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 5em;
+}
+
+p#contacts_title {
+  font-family: 'PT Sans', 'Verdana', sans-serif;
+  color: #32b295;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+form.contacts_form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+form.contacts_form input, form.contacts_form textarea {
+  padding: 1em 1em 1em 0;
+  margin-bottom: 2em;
+  width: 50%;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #134E5E;
+  font-family: 'PT Sans', 'Verdana', sans-serif;
+  font-size: 16px;
+}
+
+form.contacts_form input::-webkit-input-placeholder, form.contacts_form textarea::-webkit-input-placeholder {
+  font-family: 'PT Sans', 'Verdana', sans-serif;
+}
+
+form.contacts_form input:focus, form.contacts_form textarea:focus {
+  border-bottom: 2px solid #32b295;
+}
+
+form.contacts_form textarea {
+  resize: none;
+}
+
+form.contacts_form input[type='submit'] {
+  margin-top: 2em;
+  border: none;
+  border-radius: 5px;
+  background: #d2d2d2;
+  padding: 1em 0;
+}
+
+form.contacts_form input[type='submit']:hover {
+  cursor: pointer;
+  background: #32b295;
+  color: #fff;
+}
+
 @media (min-width: 64em) {
   .content {
     margin-left: 18rem;
@@ -430,6 +491,9 @@ a#back_to_top .fa-arrow-circle-up {
   }
   .title_outer {
     padding: 2em 0;
+  }
+  form.contacts_form input, form.contacts_form textarea {
+    min-width: 330px;
   }
 }
 
@@ -510,6 +574,23 @@ a#back_to_top .fa-arrow-circle-up {
   }
   .work_outer .title_outer .work_title {
     margin-top: 1em;
+  }
+  p#contacts_title {
+    text-align: center;
+  }
+  form.contacts_form {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-size: 14px;
+  }
+  form.contacts_form input, form.contacts_form textarea {
+    width: 80%;
+    min-width: 190px;
+    margin-bottom: 3em;
+  }
+  form.contacts_form textarea {
+    margin-bottom: 1em;
   }
 }
 
