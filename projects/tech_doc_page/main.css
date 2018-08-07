@@ -2,7 +2,8 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   line-height: 1.6em;
 }
 
@@ -23,18 +24,20 @@ body {
   font-family: "Lato", sans-serif;
 }
 
-body .container {
-  display: flex;
-}
-
 @media screen and (max-width: 770px) {
   body .container {
-    flex-direction: column;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 }
 
 body .container nav {
-  width: 20vw;
+  width: 20%;
   min-width: 200px;
   border-right: 2px solid #808080;
   position: fixed;
@@ -89,11 +92,20 @@ body .container nav ul a.nav-link:hover {
 }
 
 body .container main {
-  flex: 1;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  margin-left: 20vw;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 20%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 @media screen and (max-width: 900px) {
@@ -106,7 +118,9 @@ body .container main {
   body .container main {
     margin-left: 5%;
     margin-right: 5%;
-    align-items: flex-start;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
   }
 }
 
@@ -154,18 +168,10 @@ body .container main section ul li {
 
 body .container main section pre {
   background: #f0f0f0;
-  margin-left: 5.5em;
-  width: 80%;
+  margin-left: 1.5em;
+  width: 100%;
   padding-top: 1.6em;
-  white-space: no-wrap;
   overflow-x: scroll;
-}
-
-@media screen and (max-width: 900px) {
-  body .container main section pre {
-    margin-left: 2.5em;
-    width: 100%;
-  }
 }
 
 @media screen and (max-width: 900px) {
@@ -174,18 +180,27 @@ body .container main section pre {
   }
 }
 
-body footer {
-  margin-top: 3em;
-  margin-left: 20vw;
-  padding: 1em 0;
-  text-align: center;
-  background: #bad2d6;
+body .footer_container {
+  margin-left: 20%;
 }
 
 @media screen and (max-width: 900px) {
-  body footer {
+  body .footer_container {
     margin-left: 200px;
   }
+}
+
+@media screen and (max-width: 770px) {
+  body .footer_container {
+    margin-left: 0;
+  }
+}
+
+body footer {
+  margin-top: 3em;
+  padding: 1em 0;
+  text-align: center;
+  background: #bad2d6;
 }
 
 @media screen and (max-width: 770px) {
