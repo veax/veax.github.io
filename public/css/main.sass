@@ -27,6 +27,9 @@ a
 img, pre 
   box-shadow: $img_shadow_color
 
+.center 
+  text-align: center
+
 .img_description 
   display: inline-block
   text-align: center
@@ -43,8 +46,72 @@ img, pre
   margin-top: 0.5em
   margin-bottom: 1em
 
-.through 
-  text-decoration: line-through
+  
+// modal window:
+
+#myImg
+  transition: 0.3s
+  &:hover 
+    opacity: .7
+    cursor: pointer
+
+/* The Modal (background)
+.modal
+  display: none
+  position: fixed
+  z-index: 1
+  padding-top: 100px
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+  overflow: auto
+  background-color: rgb(0, 0, 0)
+  background-color: rgba(0, 0, 0, 0.9)
+
+/* Modal Content (Image)
+
+.modal-content
+  margin: 0 auto !important
+  display: block
+  max-width: 95%
+
+/* Add Animation - Zoom in the Modal
+
+.modal-content
+  animation-name: zoom
+  animation-duration: 0.6s
+
+@keyframes zoom
+  from
+    transform: scale(0)
+
+  to
+    transform: scale(1)
+
+
+/* The Close Button
+
+.close
+  position: absolute
+  top: 15px
+  right: 35px
+  color: #f1f1f1
+  font-size: 40px
+  font-weight: bold
+  transition: 0.3s
+  &:hover, &:focus
+    color: #bbb
+    text-decoration: none
+    cursor: pointer
+
+/* 100% Image Width on Smaller Screens
+@media only screen and (max-width: 700px)
+  .modal-content
+    width: 100%
+
+// end modal window
+
 
 dl 
   dt 
@@ -293,8 +360,8 @@ a#back_to_top
   .work_container 
     width: 80%
     margin: 0 auto
-    text-align: center
     margin-bottom: 5em
+    text-align: left
 
 
 
@@ -312,6 +379,7 @@ form.contacts_form
     margin-bottom: 2em
     width: 50%
     border: none
+    border-radius: 0
     outline: none
     border-bottom: 2px solid #134E5E
     font-family: 'PT Sans', 'Verdana', sans-serif
@@ -328,6 +396,7 @@ form.contacts_form
     border-radius: 5px
     background: #d2d2d2
     padding: 1em 0
+    -webkit-appearance: none
     tac
     &:hover 
       cursor: pointer
@@ -429,6 +498,9 @@ form.contacts_form
   .page, .post_inner, .related
     padding-left: 2rem
     padding-right: 4rem
+  .contacts_container 
+    padding-left: 2rem
+    padding-right: 2rem 
   .work_outer img 
     max-width: 90%
     height: auto

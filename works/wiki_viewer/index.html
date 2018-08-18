@@ -26,6 +26,10 @@
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
   <!-- <link rel="shortcut icon" href="/public/favicon.ico"> -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  
+
 </head>
 
 
@@ -120,11 +124,119 @@
     
   </div>
   <img src="/assets/img/wiki_viewer.png" alt="" height = 300px>
-  <h5>Stack of technologies: </h5>
-  <div class="work_container"><i>Real-time filtered search to Wikipedia api with ajax requests using JSONP</i>
+  <div class="work_container">
+    <div class="center">
+      <h5>Stack of technologies: HTML, Sass, jQuery, API</h5>
+      <i>Real-time filtered search to Wikipedia api with ajax requests using JSONP</i>
+    </div>
+    <h2>How it works</h2>
+<p>In this app we use a Wikipedia API to do a get requests and show first 10 articles on a response from wikipedia. One of the actions that this API provides called <i>open search</i>: <blockquote>MediaWiki API:Opensearch. <br> Get pages whose name matches a given string. </blockquote> You can read more about wiki opensearch <a href="https://www.mediawiki.org/wiki/API:Opensearch">here</a>.</p> 
+<p> We have to use jsonp datatype because of <strong> No 'Access-Control-Allow-Origin' header problem </strong> in case of simple json. It`s related to a Cross Origin Requests parameters. So we grub search request input every time a user press a key in a search bar and store it in a variable. Then we can compose our url for ajax request: </p>
 
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#search&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">=&gt;{</span>
+  <span class="kd">let</span> <span class="nx">req</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>     <span class="c1">// grub search input</span>
+  <span class="kd">let</span> <span class="nx">req_url</span> <span class="o">=</span> <span class="s1">&#39;https://en.wikipedia.org/w/api.php?action=opensearch&amp;format=json&amp;search=&#39;</span><span class="o">+</span><span class="nx">req</span><span class="p">;</span> </code></pre></figure>
+
+<p>On a success response we grub an array of articles and output each of them on a screen with a title, desciption and a link to an actual article on Wikipedia:</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+  <span class="kd">let</span> <span class="nx">articles</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+  <span class="kd">let</span> <span class="nx">output</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+  <span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">articles</span><span class="p">,</span> <span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="nx">article</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">output</span> <span class="o">+=</span> <span class="sb">`</span>
+<span class="sb">    &lt;li class = &quot;article_card&quot;&gt;</span>
+<span class="sb">      &lt;a href=&quot;</span><span class="si">${</span><span class="nx">data</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="nx">index</span><span class="p">]</span><span class="si">}</span><span class="sb">&quot; target=&quot;_blank&quot;&gt;</span>
+<span class="sb">        &lt;h3&gt;</span><span class="si">${</span><span class="nx">article</span><span class="si">}</span><span class="sb">&lt;/h3&gt;</span>
+<span class="sb">        &lt;p class=&quot;description&quot;&gt;</span><span class="si">${</span><span class="nx">data</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="nx">index</span><span class="p">]</span><span class="si">}</span><span class="sb">&lt;/p&gt;</span>
+<span class="sb">      &lt;/a&gt;</span>
+<span class="sb">    &lt;/li&gt;`</span>
+  <span class="p">});</span></code></pre></figure>
+
+<p>Let`s output response jsonp data in a console:</p>
+
+<!-- Trigger the Modal -->
+<img id="myImg" src="/assets/img/wiki_api.png">
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- The Close Button -->
+  <span class="close">&times;</span>
+
+  <!-- Modal Content (The Image) -->
+  <img class="modal-content" id="img01">
 
 </div>
+
+<script>
+  // Get the modal
+  var modal = document.getElementById('myModal');
+
+  // Get the image and insert it inside the modal - use its "alt" text as a caption
+  var img = document.getElementById('myImg');
+  var modalImg = document.getElementById("img01");
+  img.onclick = function(){
+      modal.style.display = "block";
+      modalImg.src = this.src;
+      captionText.innerHTML = this.alt;
+  }
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() { 
+    modal.style.display = "none";
+  }
+</script>
+
+<span>We obtain an object with 4 properties:</span>
+<ul>
+  <li>User input</li>
+  <li>An array of relevant articles names</li>
+  <li>Articles description</li>
+  <li>Articles links</li>
+</ul>
+<p>We access these properties in a each loop for <ins>all articles</ins>. Finally we insert output in a DOM: </p>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#articles&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">output</span><span class="p">);</span></code></pre></figure>
+
+<h3>Empty user input problem</h3>
+<p>If we stop here, the code will work, but what if user will type some letters in the input field and clear it after? We will always see the returned articles on the request by first letter entered by user. Example: </p>
+<table>
+  <thead>
+    <tr>
+      <th>User input</th>
+      <th>data[0]</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>react</td>
+      <td>r</td>
+    </tr>
+    <tr>
+      <td>vue</td>
+      <td>v</td>
+    </tr>
+  </tbody>
+</table>
+<p>data[0] will return the first letter entered by user when he clears out all input:</p>
+<img src="/assets/img/wiki_bug.png" alt="wiki_pb">
+<p>To avoid this, we can simply check if a use input is empty or not: </p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span></span><span class="k">if</span> <span class="p">(</span><span class="nx">req</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">){</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#articles&#39;</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">output</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="p">{</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#articles&#39;</span><span class="p">).</span><span class="nx">empty</span><span class="p">();</span> <span class="c1">//clear output if no data coming</span>
+<span class="p">}</span></code></pre></figure>
+
+
+
+
+
+
+
+  </div>
 </div>
 
     </div>

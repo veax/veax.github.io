@@ -11,6 +11,10 @@ img, pre {
           box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 }
 
+.center {
+  text-align: center;
+}
+
 .img_description {
   display: inline-block;
   text-align: center;
@@ -29,8 +33,91 @@ img, pre {
   margin-bottom: 1em;
 }
 
-.through {
-  text-decoration: line-through;
+#myImg {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#myImg:hover {
+  opacity: .7;
+  cursor: pointer;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+/* Modal Content (Image) */
+.modal-content {
+  margin: 0 auto !important;
+  display: block;
+  max-width: 95%;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content {
+  -webkit-animation-name: zoom;
+          animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+          animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes zoom {
+  from {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.close:hover, .close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px) {
+  .modal-content {
+    width: 100%;
+  }
 }
 
 dl dt {
@@ -408,8 +495,8 @@ a#back_to_top .fa-arrow-circle-up {
 .work_outer .work_container {
   width: 80%;
   margin: 0 auto;
-  text-align: center;
   margin-bottom: 5em;
+  text-align: left;
 }
 
 p#contacts_title {
@@ -434,6 +521,7 @@ form.contacts_form input, form.contacts_form textarea {
   margin-bottom: 2em;
   width: 50%;
   border: none;
+  border-radius: 0;
   outline: none;
   border-bottom: 2px solid #134E5E;
   font-family: 'PT Sans', 'Verdana', sans-serif;
@@ -458,6 +546,7 @@ form.contacts_form input[type='submit'] {
   border-radius: 5px;
   background: #d2d2d2;
   padding: 1em 0;
+  -webkit-appearance: none;
 }
 
 form.contacts_form input[type='submit']:hover {
@@ -598,6 +687,10 @@ form.contacts_form input[type='submit']:hover {
   .page, .post_inner, .related {
     padding-left: 2rem;
     padding-right: 4rem;
+  }
+  .contacts_container {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
   .work_outer img {
     max-width: 90%;
