@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Install Hyde theme on Jekyll version 3 &middot; Borisov Vadim
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="/public/css/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,700" rel="stylesheet"> -->
+  <!-- |Abril+Fatface -->
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon2.ico">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  
+
+</head>
+
+
+  <body>
+
+    <div class="sidebar">
+  <div class="sidebar-sticky">
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Home</a>
+
+      
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+          <a class="sidebar-nav-item" href="/about.html">About me</a>
+          
+        
+      
+        
+          
+          <a class="sidebar-nav-item" href="/work.html">Work</a>
+          
+        
+      
+        
+          
+          <a class="sidebar-nav-item active" href="/blog.html">Blog</a>
+          
+        
+      
+        
+          
+          <a class="sidebar-nav-item" href="/contacts.html">Contacts</a>
+          
+        
+      
+    </nav>
+  </div>
+
+  <div class="socials">
+  <ul class="socials_links">
+    
+    <li>
+      <a href="https://github.com/veax" target="_blank">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+    
+    <li>
+      <a href="https://www.facebook.com/profile.php?id=100001788716921" target="_blank">
+        <i class="fab fa-facebook-square"></i>
+      </a>
+    </li>
+    
+    <li>
+      <a href="https://vk.com/id151991161" target="_blank">
+        <i class="fab fa-vk"></i>
+      </a>
+    </li>
+    
+    <li>
+      <a href="https://www.instagram.com/veax/" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+</div>
+
+
+    <div class="content container">
+      <div class="post post_inner">
+  <h1 class="post-title">Install Hyde theme on Jekyll version 3</h1>
+  <span class="post-date">28 Jul 2018</span>
+  <p>It would be logic to write my first post with talk about how I started my blog by installing the Hyde Theme by <a href="https://twitter.com/mdo" target="_blank">Mark Otto</a>, because I have some troubles with compatibility of this theme on jekyll 3.</p>
+
+<p>So, first of all go to <a href="http://jekyllthemes.org/">http://jekyllthemes.org/</a> and find a hyde theme (not hydeout). There is not an search on a site, so you can go directly on <a href="https://github.com/poole/hyde" target="_blank">https://github.com/poole/hyde</a> if you`re lazy to browse all existing themes. I will just included some official documentation here:</p>
+
+<h3 id="built-on-poole">Built on Poole</h3>
+
+<p>Poole is the Jekyll Butler, serving as an upstanding and effective foundation for Jekyll themes by <a href="https://twitter.com/mdo">@mdo</a>. Poole, and every theme built on it (like Hyde here) includes the following:</p>
+
+<ul>
+  <li>Complete Jekyll setup included (layouts, config, <a href="/404">404</a>, RSS feed, posts, and <a href="/about">example page</a>)</li>
+  <li>Mobile friendly design and development</li>
+  <li>Easily scalable text and component sizing with <code class="highlighter-rouge">rem</code> units in the CSS</li>
+  <li>Support for a wide gamut of HTML elements</li>
+  <li>Related posts (time-based, because Jekyll) below each post</li>
+  <li>Syntax highlighting, courtesy Pygments (the Python-based code snippet highlighter)</li>
+</ul>
+
+<h3 id="hyde-features">Hyde features</h3>
+
+<p>In addition to the features of Poole, Hyde adds the following:</p>
+
+<ul>
+  <li>Sidebar includes support for textual modules and a dynamically generated navigation with active link support</li>
+  <li>Two orientations for content and sidebar, default (left sidebar) and <a href="https://github.com/poole/lanyon#reverse-layout">reverse</a> (right sidebar), available via <code class="highlighter-rouge">&lt;body&gt;</code> classes</li>
+  <li><a href="https://github.com/poole/hyde#themes">Eight optional color schemes</a>, available via <code class="highlighter-rouge">&lt;body&gt;</code> classes</li>
+</ul>
+
+<p><a href="https://github.com/poole/hyde#readme">Head to the readme</a> to learn more.</p>
+
+<h3 id="browser-support">Browser support</h3>
+
+<p>Hyde is by preference a forward-thinking project. In addition to the latest versions of Chrome, Safari (mobile and desktop), and Firefox, it is only compatible with Internet Explorer 9 and above.</p>
+
+<h3 id="installation">Installation</h3>
+
+<p>So, clone the project from github: <code class="highlighter-rouge">git clone https://github.com/poole/hyde.git</code> and cd into downloaded folder. Check out your current version of jekyll (if you didn’t installed it yet, go to <a href="https://jekyllrb.com/">https://jekyllrb.com/</a>) : <code class="highlighter-rouge">jekyll --version</code> For me it’s <code class="highlighter-rouge">jekyll 3.8.3
+</code></p>
+
+<p>Now if you try to running a server by taping <code class="highlighter-rouge">jekyll serve</code> you will have a warning:</p>
+<div class="message warning"> Deprecation: You appear to have pagination turned on, but you haven't included the `jekyll-paginate` gem. Ensure you have `plugins: [jekyll-paginate]` in your configuration file.
+</div>
+<p>and the error:</p>
+<div class="message error"> Since v3.0, permalinks for pages in subfolders must be relative to the site source directory, not the parent directory. Check https://jekyllrb.com/docs/upgrading/ for more info. 
+</div>
+<p>So, the permalinks are deprecated in version 3 - we can remove a line <code class="highlighter-rouge">relative_permalinks: true</code> from <em>_config.yml</em> and add this in the end of the file: <br /></p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">plugins:
+  - jekyll-paginate
+  - jekyll-gist
+  - redcarpet</code></pre></figure>
+
+<p>Now check out list of local gems: <code class="highlighter-rouge">gem list</code>
+If you don’t have a redcarpet, you need to install it: <code class="highlighter-rouge">sudo gem install redcarpet</code> 
+Finally, try to run a server once again: <code class="highlighter-rouge">jekyll serve</code> and go to <code class="highlighter-rouge">localhost:4000</code>. Normally, you must see an index page of hyde theme.</p>
+
+<p>If you have any troubles, post it in comments and happy coding!</p>
+
+
+  <div id="disqus_thread"></div>
+  <script>
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://veax-blog.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+                            
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/web/2018/08/19/deploy-site-on-netlify.html">
+            Deploy a photographer portfolio site on Netlify
+            <small>19 Aug 2018</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/web/2018/08/06/using-webpack-for-fullstack-app.html">
+            Using webpack for fullstack app
+            <small>06 Aug 2018</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2012/02/07/example-content.html">
+            Example content
+            <small>07 Feb 2012</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+    </div>
+  
+  </body>
+</html>

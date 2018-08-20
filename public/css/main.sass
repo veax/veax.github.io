@@ -16,12 +16,14 @@ $work_link_color: #3788e3
 //
 $img_shadow_color: 0 15px 35px rgba(0,0,0,.2)
 $desc_color: #989898
+$post_title_color: #109053
 
 // -------------- DEFAULT STYLES
-html 
-  line-height: 1.7
+// body
+//   max-width: 1600px
+//   margin: 0 auto
 a 
-  &:visited, &:focus
+  &:visited, &:focus, &:hover
     text-decoration: none
 
 img, pre 
@@ -29,6 +31,8 @@ img, pre
 
 .center 
   text-align: center
+.left
+  margin-left: 0 !important
 
 .img_description 
   display: inline-block
@@ -40,11 +44,11 @@ img, pre
 
 .medium_photo 
   display: block
-  width: 50%
+  max-width: 50%
+  width: 800px
   min-width: 250px
   height: auto
-  margin-top: 0.5em
-  margin-bottom: 1em
+  margin: 0.5em auto 1em
 
   
 // modal window:
@@ -136,6 +140,24 @@ dl
 .highlight 
   margin-left: 0
   margin-right: 0
+.warning 
+  color: #d6c516
+.error 
+  color: #d65016
+.post-title 
+  color: $post_title_color
+  a
+    position: relative
+    color: $post_title_color
+    &:hover
+      &:after
+        content: ''
+        position: absolute
+        width: 100%
+        height: 0   
+        left: 0
+        bottom: 4px                    /* <- distance */
+        border-bottom: 3px solid $post_title_color
 
 // ---------------- SIDEBAR NAVIGATION
 .sidebar
@@ -313,10 +335,10 @@ a#back_to_top
     display: flex
     flex-direction: column
     text-align: center
-    flex: 0 1 17vw
+    flex: 0 1 20vw
     min-width: 200px
     min-height: 200px
-    height: 16vw
+    height: 17vw
     padding: 0
     box-shadow: 0 15px 35px rgba(0,0,0,.3)
     border-radius: 5px
@@ -375,6 +397,8 @@ form.contacts_form
   display: flex
   flex-direction: column
   input, textarea 
+    &:required
+      box-shadow: none
     padding: 1em 1em 1em 0
     margin-bottom: 2em
     width: 50%
@@ -404,6 +428,7 @@ form.contacts_form
       color: #fff
 
 // -------------------- MEDIA QUERIES
+
 @media (min-width: 64em)
   .content
     margin-left: 18rem

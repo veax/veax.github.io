@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Deploy a photographer portfolio site on Netlify &middot; Borisov Vadim
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="/public/css/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,700" rel="stylesheet"> -->
+  <!-- |Abril+Fatface -->
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon2.ico">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  
+
+</head>
+
+
+  <body>
+
+    <div class="sidebar">
+  <div class="sidebar-sticky">
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Home</a>
+
+      
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+          <a class="sidebar-nav-item" href="/about.html">About me</a>
+          
+        
+      
+        
+          
+          <a class="sidebar-nav-item" href="/work.html">Work</a>
+          
+        
+      
+        
+          
+          <a class="sidebar-nav-item active" href="/blog.html">Blog</a>
+          
+        
+      
+        
+          
+          <a class="sidebar-nav-item" href="/contacts.html">Contacts</a>
+          
+        
+      
+    </nav>
+  </div>
+
+  <div class="socials">
+  <ul class="socials_links">
+    
+    <li>
+      <a href="https://github.com/veax" target="_blank">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+    
+    <li>
+      <a href="https://www.facebook.com/profile.php?id=100001788716921" target="_blank">
+        <i class="fab fa-facebook-square"></i>
+      </a>
+    </li>
+    
+    <li>
+      <a href="https://vk.com/id151991161" target="_blank">
+        <i class="fab fa-vk"></i>
+      </a>
+    </li>
+    
+    <li>
+      <a href="https://www.instagram.com/veax/" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+</div>
+
+
+    <div class="content container">
+      <div class="post post_inner">
+  <h1 class="post-title">Deploy a photographer portfolio site on Netlify</h1>
+  <span class="post-date">19 Aug 2018</span>
+  <p>A few days ago I had an idea to create my personal portfolio of photos that I shooted. So I want is to be a static site only to deploy my photos and some contact informations. I have looked for Hugo Themes but I don’t found anyone that I liked too much. So finally, I find a Aperture Theme by <a href="https://github.com/CloudCannon/aperture-jekyll-template">CloudCanon</a> that was exactly what I looking for. <br /></p>
+
+<p><img src="/assets/img/aperture_front.png" alt="aperture theme template" title="Aperture template theme" />
+They provide a CMS for your jekyll site, but I wanted a total power to custom my new site with original code, so I cloned a repo on github and started a work.</p>
+
+<h2 id="_configyml">_config.yml</h2>
+
+<p>Here`s we do a basic changes like title, baseurl, name, links etc. nothing special</p>
+
+<h2 id="gemfile">Gemfile</h2>
+
+<p>Now we install bundled Gems into RubyGems (locally) using sudo: <code class="highlighter-rouge">sudo bundle install</code> .
+After we run a server: <code class="highlighter-rouge">jekyll serve --port 5500</code>
+Probably, you will have a warning something like me:</p>
+<div class="message warning">
+  WARN: Unresolved specs during Gem::Specification.reset:
+    eventmachine (&gt;= 0.12.9)
+    rb-fsevent (&gt;= 0.9.4, ~&gt; 0.9)
+    ffi (&lt; 2, &gt;= 0.5.0)
+</div>
+<p>This is due to a multiple versions of the same gems, check out: <code class="highlighter-rouge">gem list eventmachine</code>:</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">LOCAL GEMS
+
+eventmachine (1.2.7, 1.2.5)`</code></pre></figure>
+
+<p>run <code class="highlighter-rouge">sudo gem cleanup eventmachine rb-fsevent ffi</code> resolve a problem. After I have a jekyll version 3.8.3, so compare your current version of jekyll with that in a Gemfile, and if it’s different, replace with your current one.
+After type <code class="highlighter-rouge">bundle update jekyll</code> again <code class="highlighter-rouge">jekyll serve</code>. If you have an error like:</p>
+<div class="message error">
+  Error:  (/home/veax/Documents/projects/dev/photography_site/aperture-jekyll-template/_config.yml): mapping values are not allowed in this context at line 13 column 7
+</div>
+<p>just shift author name email etc. values on the same line with others values and restart a server.</p>
+
+<h2 id="link-styles-sheets">Link styles sheets</h2>
+<p>If you go now on a localhost (with the port that you choose - :4000 by default), and you see plain html text - you need to remove a baseurl in a _config.yml file if you added anyone before like this: <code class="highlighter-rouge">baseurl: </code>. Otherwise the paths to styles won’t be correct.</p>
+
+<h2 id="uploads-photo-system">Uploads Photo System</h2>
+
+<p>Open an index.html in your favorite text editor <del>(vscode of course)</del>.
+In the front matter (text wrapped in 3 dashes in a start of file) you can see a <code class="highlighter-rouge">photos</code> variable with image and caption for which one. And in the body we have a loop through all photos mentionned in front matter of index.html. By the way, the photos will upload in a uploads folder and the caption and src you have to add in index.html
+But I don’t want at first to add a photo in a folder and add a caption with image name yet in a front matter. This is a real pain and waste of time!</p>
+
+<p>We can use site.static_files property to have access to our images in a loop. To avoid to have all the static files in our loop, we can add a condition that image path contains name of a folder where it is located:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">{</span><span class="sx">% for </span><span class="n">image</span> <span class="k">in</span> <span class="n">site</span><span class="p">.</span><span class="nf">static_files</span> <span class="sx">%}
+  {% if image.path contains 'uploads' %}</span>
+  
+  <span class="o">&lt;</span><span class="n">li</span> <span class="n">style</span><span class="o">=</span><span class="s2">"background-image: url('{{ site.baseurl }}{{ site.image_fulls_loc }}/{{ image.name}}')"</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">a</span> <span class="n">title</span><span class="o">=</span><span class="s2">"{{ image.name }}"</span> <span class="n">href</span><span class="o">=</span><span class="s2">"{{ site.baseurl }}{{ site.image_fulls_loc }}/{{ image.name}}"</span> <span class="n">data</span><span class="o">-</span><span class="nb">id</span><span class="o">=</span><span class="s2">"</span><span class="si">#{</span><span class="p">{</span> <span class="n">image</span><span class="p">.</span><span class="nf">name</span> <span class="o">|</span> <span class="n">slugify</span> <span class="si">}</span><span class="s2">}"</span> <span class="n">data</span><span class="o">-</span><span class="n">caption</span><span class="o">=</span><span class="s2">"{{ image.name }}"</span><span class="o">&gt;&lt;</span><span class="sr">/a&gt;
+  &lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+  <span class="p">{</span><span class="sx">% endif </span><span class="o">%</span><span class="p">}</span>
+<span class="p">{</span><span class="sx">% endfor </span><span class="o">%</span><span class="p">}</span></code></pre></figure>
+
+<h2 id="custom-a-template">Custom a template</h2>
+
+<p>When I looked CMS By CloudCanon I really don’t liked that I can’t change this bold logo on a front page - this is one of the reason why I don’t use it (may be I’m just stupid and I don’t see how to do it x) So first of all I want to get rid off this logo - I will not explain this, simply modify default layout page. <br /></p>
+
+<p>Now, I don’t like ugly form on <em>hire me</em> page, so I modified it, here is a result:</p>
+
+<p><img src="/assets/img/aperture_form.png" alt="aperture form" />
+<span class="img_description">Aperture form changed</span></p>
+
+<p>Also, initially the template in not responsive, so I did it like I wanted: mobile-friendly, you can see the final code on my github repo: 
+<img src="/assets/img/aperture_action.gif" alt="aperture responsive" />
+<span class="img_description">Responsive pages</span></p>
+
+<h2 id="deploy">Deploy</h2>
+<p>To deploy a site on Netlify, you have many different options, I will deploy from github repo. So we have to initialize a new git repo and push it to github:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> git init 
+ git add <span class="nb">.</span>
+ git commit <span class="nt">-m</span> <span class="s2">"init"</span>
+</code></pre></div></div>
+<p>Create a new repo on github, connect your local version with remote and push it:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote add origin https://github.com/veax/Photography-Portfolio-Website.git
+git push <span class="nt">-u</span> origin master
+</code></pre></div></div>
+
+<p>Now, go to <a href="https://www.netlify.com/">Netlify</a> and sign up (I do it by github account). <br />
+After click on <em>New site from Git</em>  choose your git provider and pick up a repo that we pushed right before.
+In build settings, verify build command, it would be: <strong>jekyll build</strong> <br />
+Choose dist directory after jekyll will generate your pages. I leave it by default: <strong>_site/</strong> <br />
+Click on <em>Deploy Site</em> and it’s done!</p>
+
+<p>The last thing we need is to change a domain name. If you don’t want to have a netlify subdomain name in your url, you can buy it by googling. I will only change subdomain url name:
+click on <em>Site details</em> and <em>Change site name</em>.
+For me it is: <a href="https://veax-photos.netlify.com">https://veax-photos.netlify.com</a></p>
+
+<p>Now, you can modified you local git repo and push it on git - netlify will automatically update the changes.</p>
+
+<h2 id="ps">P.S</h2>
+<p>To lightweight images I use bash commands that I found on Ubuntu forum (<a href="https://askubuntu.com/questions/781497/how-can-i-compress-images">link</a>) <br /> 
+In a folder with your images execute this (you can choose other pixels width and compression rate if you want of course):</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for </span>i <span class="k">in</span> <span class="k">*</span><span class="p">;</span> <span class="k">do </span>convert <span class="nv">$i</span> <span class="nt">-resize</span> 1024x <span class="nv">$i</span><span class="nt">-1024x</span>.jpg<span class="p">;</span> <span class="k">done</span><span class="p">;</span>
+<span class="k">for </span>i <span class="k">in</span> <span class="k">*</span><span class="nt">-1024x</span>.jpg<span class="p">;</span> <span class="k">do </span>convert <span class="nv">$i</span> <span class="nt">-quality</span> 80% <span class="nv">$i</span><span class="nt">-80p</span>.jpg<span class="p">;</span> <span class="k">done</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>And you can move now your converted images in ‘uploads’ folder:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for </span>i <span class="k">in</span> <span class="k">*</span><span class="nt">-80p</span>.jpg<span class="p">;</span> <span class="k">do </span><span class="nb">mv</span> <span class="nv">$i</span> ~/path_to_site_root/uploads<span class="p">;</span> <span class="k">done</span><span class="p">;</span>
+</code></pre></div></div>
+<p>With this method I compressed my raw images from 388 Mb to 8.6 Mb with quite satisfying quality before upload. 
+That’s all, thank you for reading and happy coding!</p>
+
+  <div id="disqus_thread"></div>
+  <script>
+  (function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://veax-blog.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+  })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+                            
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/web/2018/08/06/using-webpack-for-fullstack-app.html">
+            Using webpack for fullstack app
+            <small>06 Aug 2018</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/web/2018/07/28/introducing-hyde.html">
+            Install Hyde theme on Jekyll version 3
+            <small>28 Jul 2018</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2012/02/07/example-content.html">
+            Example content
+            <small>07 Feb 2012</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+    </div>
+  
+  </body>
+</html>
