@@ -1,3 +1,8 @@
+// IMPORT
+@import "./partials/poole"
+@import "./partials/syntax"
+@import "./partials/hyde"
+  
 // -------------- VARIABLES
 // colors
 $sidebar_bg_color: #231B24
@@ -7,7 +12,7 @@ $main_bg_fallback: #134E5E
 $main_bg_gradient: to left, #71B280, #134E5E
 
 =main_bg($main_bg_gradient)
-  background: $main_bg_fallback  /* fallback for old browsers */
+  background: $main_bg_fallback  // fallback for old browsers */
   background: -webkit-linear-gradient($main_bg_gradient)  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient($main_bg_gradient)  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
@@ -16,12 +21,10 @@ $work_link_color: #3788e3
 //
 $img_shadow_color: 0 15px 35px rgba(0,0,0,.2)
 $desc_color: #989898
-$post_title_color: #109053
+// $post_title_color: #109053
+$post_title_color: #186352
 
 // -------------- DEFAULT STYLES
-// body
-//   max-width: 1600px
-//   margin: 0 auto
 a 
   &:visited, &:focus, &:hover
     text-decoration: none
@@ -150,14 +153,15 @@ dl
     position: relative
     color: $post_title_color
     &:hover
-      &:after
-        content: ''
-        position: absolute
-        width: 100%
-        height: 0   
-        left: 0
-        bottom: 4px                    /* <- distance */
-        border-bottom: 3px solid $post_title_color
+      text-decoration: underline
+      // &:after
+      //   content: ''
+      //   position: absolute
+      //   width: 100%
+      //   height: 0   
+      //   left: 0
+      //   bottom: 4px                    /* <- distance */
+      //   border-bottom: 3px solid $post_title_color
 
 // ---------------- SIDEBAR NAVIGATION
 .sidebar
@@ -427,6 +431,82 @@ form.contacts_form
       background: #32b295
       color: #fff
 
+// ------------------- SHARE BUTTONS
+  // Share Bar
+
+#share-bar
+  font-size: 1rem
+  margin-top: 1em
+  h4
+    margin-top: 2em
+    margin-bottom: .8em
+    font-weight: 500
+    color: $post_title_color
+
+
+// Each button
+
+.share-button
+  margin: 0px
+  margin-bottom: 10px
+  margin-right: 3px
+  border: 1px solid #D3D6D2
+  border-radius: 3px
+  padding: 5px 10px 5px 10px
+  font-style: normal
+  display: inline-block
+  &:hover
+    opacity: 1
+    color: #ffffff !important
+
+// Facebook button
+.share-buttons
+  .fa-facebook-square
+    color: #3b5998
+    &:hover
+      background-color: #3b5998
+
+  // Twitter button
+
+  .fa-twitter
+    color: #55acee
+    &:hover
+      background-color: #55acee
+
+  // Google-PLus button
+
+  .fa-google-plus
+    color: #dd4b39
+    &:hover
+      background-color: #dd4b39
+
+  // VK Button
+  .fa-vk
+    color: #4c75a3
+    &:hover 
+       background-color: #4c75a3
+  // Pinterest button
+
+  .fa-pinterest-p
+    color: #cb2027
+    &:hover
+      background-color: #cb2027
+
+  // Tumblr button
+
+  .fa-tumblr
+    color: #32506d
+    &:hover
+      background-color: #32506d
+
+  // Reddit button
+
+  .fa-reddit-alien
+    color: #ff4500
+    &:hover
+      background-color: #ff4500
+
+
 // -------------------- MEDIA QUERIES
 
 @media (min-width: 64em)
@@ -520,9 +600,12 @@ form.contacts_form
       margin-bottom: 1em
 
 @media (max-width: 32em)
-  .page, .post_inner, .related
+  .page 
     padding-left: 2rem
     padding-right: 4rem
+  .post_inner, .related
+    padding-left: 2rem
+    padding-right: 2rem
   .contacts_container 
     padding-left: 2rem
     padding-right: 2rem 

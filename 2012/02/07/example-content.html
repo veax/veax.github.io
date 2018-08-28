@@ -5,6 +5,7 @@
   <link href="http://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="description" content = "Personal blog about new technologies, JAM Stack and Jekyll">
 
   <!-- Enable responsiveness on mobile devices-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -16,26 +17,15 @@
   </title>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/public/css/poole.css">
-  <link rel="stylesheet" href="/public/css/syntax.css">
-  <link rel="stylesheet" href="/public/css/hyde.css">
-  <link rel="stylesheet" href="/public/css/main.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700">
-  <!-- <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,700" rel="stylesheet"> -->
-  <!-- |Abril+Fatface -->
-
-  <!-- Icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="/public/favicon2.ico">
-
+  <link rel="stylesheet" href="/public/css/main.min.css">
   <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  
-
+  <link rel="stylesheet" href="/assets/font-awesome/fontello.css">
+  <!-- fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,700">
+  <!-- Icons -->
+  <!-- <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/favicon.png"> -->
+  <link rel="shortcut icon" href="/public/favicon.ico">
 </head>
-
 
   <body>
 
@@ -56,29 +46,25 @@
       
         
           
-        
-      
-        
-          
-          <a class="sidebar-nav-item" href="/about.html">About me</a>
+            <a class="sidebar-nav-item" href="/about.html">About me</a>
           
         
       
         
           
-          <a class="sidebar-nav-item" href="/work.html">Work</a>
+            <a class="sidebar-nav-item" href="/work.html">Work</a>
           
         
       
         
           
-          <a class="sidebar-nav-item active" href="/blog.html">Blog</a>
+            <a class="sidebar-nav-item active" href="/blog.html">Blog</a>
           
         
       
         
           
-          <a class="sidebar-nav-item" href="/contacts.html">Contacts</a>
+            <a class="sidebar-nav-item" href="/contacts.html">Contacts</a>
           
         
       
@@ -256,16 +242,65 @@
 
 <p>Want to see something else added? <a href="https://github.com/poole/poole/issues/new">Open an issue.</a></p>
 
+  <hr>
+<div id="share-bar">
+
+  <h4>Share this:</h4>
+
+  <div class="share-buttons">
+    <a  href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000//2012/02/07/example-content.html"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on Facebook" >
+        <i class="fab fa-facebook-square share-button"> facebook</i>
+    </a>
+
+    <a  href="https://vk.com/share.php?url=http://localhost:4000//2012/02/07/example-content.html"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on VK" >
+        <i class="fab fa-vk share-button"> vk</i>
+    </a>
+
+    <a  href="https://twitter.com/intent/tweet?text=Example content&url=http://localhost:4000//2012/02/07/example-content.html"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on Twitter" >
+        <i class="fab fa-twitter share-button"> twitter</i>
+    </a>
+    <a  href="https://plus.google.com/share?url=http://localhost:4000//2012/02/07/example-content.html"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on Google+" >
+        <i class="fab fa-google-plus share-button"> google</i>
+    </a>
+
+    <a  href="http://pinterest.com/pin/create/button/?url=http://localhost:4000//2012/02/07/example-content.html"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on Pinterest" >
+        <i class="fab fa-pinterest-p share-button"> pinterest</i>
+    </a>
+
+    <a  href="http://www.tumblr.com/share/link?url=http://localhost:4000//2012/02/07/example-content.html"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on Tumblr" >
+        <i class="fab fa-tumblr share-button"> tumblr</i>
+    </a>
+    <a  href="http://www.reddit.com/submit?url=http://localhost:4000//2012/02/07/example-content.html"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on Reddit" >
+        <i class="fab fa-reddit-alien share-button"> reddit</i>
+    </a>
+
+
+  </div>
+</div>
   <div id="disqus_thread"></div>
-  <script>
-  (function() { // DON'T EDIT BELOW THIS LINE
-  var d = document, s = d.createElement('script');
-  s.src = 'https://veax-blog.disqus.com/embed.js';
-  s.setAttribute('data-timestamp', +new Date());
-  (d.head || d.body).appendChild(s);
-  })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<script>
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://veax-blog.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
                             
 <div class="related">
@@ -274,8 +309,17 @@
     
       <li>
         <h3>
+          <a href="/web/2018/08/23/optimize-site-speed.html">
+            Optimize site speed
+            <small>23 Aug 2018</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
           <a href="/web/2018/08/19/deploy-site-on-netlify.html">
-            Deploy a photographer portfolio site on Netlify
+            Deploy a photography portfolio site on Netlify
             <small>19 Aug 2018</small>
           </a>
         </h3>
@@ -290,19 +334,19 @@
         </h3>
       </li>
     
-      <li>
-        <h3>
-          <a href="/web/2018/07/28/introducing-hyde.html">
-            Install Hyde theme on Jekyll version 3
-            <small>28 Jul 2018</small>
-          </a>
-        </h3>
-      </li>
-    
   </ul>
 </div>
 
     </div>
-  
+ 
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-124169554-1" async></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-124169554-1');
+    </script>
   </body>
 </html>

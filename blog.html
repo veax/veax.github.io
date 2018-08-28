@@ -5,6 +5,7 @@
   <link href="http://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="description" content = "Personal blog about new technologies, JAM Stack and Jekyll">
 
   <!-- Enable responsiveness on mobile devices-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -16,26 +17,15 @@
   </title>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/public/css/poole.css">
-  <link rel="stylesheet" href="/public/css/syntax.css">
-  <link rel="stylesheet" href="/public/css/hyde.css">
-  <link rel="stylesheet" href="/public/css/main.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700">
-  <!-- <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,700" rel="stylesheet"> -->
-  <!-- |Abril+Fatface -->
-
-  <!-- Icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="/public/favicon2.ico">
-
+  <link rel="stylesheet" href="/public/css/main.min.css">
   <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  
-
+  <link rel="stylesheet" href="/assets/font-awesome/fontello.css">
+  <!-- fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,700">
+  <!-- Icons -->
+  <!-- <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/favicon.png"> -->
+  <link rel="shortcut icon" href="/public/favicon.ico">
 </head>
-
 
   <body>
 
@@ -56,29 +46,25 @@
       
         
           
-        
-      
-        
-          
-          <a class="sidebar-nav-item" href="/about.html">About me</a>
+            <a class="sidebar-nav-item" href="/about.html">About me</a>
           
         
       
         
           
-          <a class="sidebar-nav-item" href="/work.html">Work</a>
+            <a class="sidebar-nav-item" href="/work.html">Work</a>
           
         
       
         
           
-          <a class="sidebar-nav-item active" href="/blog.html">Blog</a>
+            <a class="sidebar-nav-item active" href="/blog.html">Blog</a>
           
         
       
         
           
-          <a class="sidebar-nav-item" href="/contacts.html">Contacts</a>
+            <a class="sidebar-nav-item" href="/contacts.html">Contacts</a>
           
         
       
@@ -126,14 +112,22 @@
 <div class="toggle-content" id="example">
   
     
+    <h3 class="category_name_link"><a href="/category/jekyll">jekyll</a></h3>
+    <ul>
+    
+      <li><a href="/jekyll/2018/07/28/introducing-hyde.html">Install Hyde theme on Jekyll version 3</a><span>28 Jul 2018</span></li>
+    
+    </ul>
+  
+    
     <h3 class="category_name_link"><a href="/category/web">web</a></h3>
     <ul>
     
-      <li><a href="/web/2018/08/19/deploy-site-on-netlify.html">Deploy a photographer portfolio site on Netlify</a><span>19 Aug 2018</span></li>
+      <li><a href="/web/2018/08/23/optimize-site-speed.html">Optimize site speed</a><span>23 Aug 2018</span></li>
+    
+      <li><a href="/web/2018/08/19/deploy-site-on-netlify.html">Deploy a photography portfolio site on Netlify</a><span>19 Aug 2018</span></li>
     
       <li><a href="/web/2018/08/06/using-webpack-for-fullstack-app.html">Using webpack for fullstack app</a><span>06 Aug 2018</span></li>
-    
-      <li><a href="/web/2018/07/28/introducing-hyde.html">Install Hyde theme on Jekyll version 3</a><span>28 Jul 2018</span></li>
     
     </ul>
   
@@ -144,8 +138,23 @@
   
   <div class="post">
     <h1 class="post-title">
+      <a href="/web/2018/08/23/optimize-site-speed.html">
+        Optimize site speed
+      </a>
+    </h1>
+
+    <span class="post-date">23 Aug 2018</span>
+
+    <p>
+      <p>Lately, I had a strong idea to optimize a page speed for my blog pages. Here are some of methods that I applied:</p> <h3 id="bundle-all-css-files-in-one-and-minify-it">Bundle all css files in one and minify it</h3> <p>For now the structure of folder is: <img src="/assets/img/css_structure.png" alt="css structure" title="Css structure" /> So in head...
+    </p>
+    
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
       <a href="/web/2018/08/19/deploy-site-on-netlify.html">
-        Deploy a photographer portfolio site on Netlify
+        Deploy a photography portfolio site on Netlify
       </a>
     </h1>
 
@@ -175,7 +184,7 @@
   
   <div class="post">
     <h1 class="post-title">
-      <a href="/web/2018/07/28/introducing-hyde.html">
+      <a href="/jekyll/2018/07/28/introducing-hyde.html">
         Install Hyde theme on Jekyll version 3
       </a>
     </h1>
@@ -205,105 +214,21 @@
   
 </div>
 
-<script>
-  // Show an element
-var show = function (elem) {
-
-// Get the natural height of the element
-var getHeight = function () {
-  elem.style.display = 'block'; // Make it visible
-  var height = elem.scrollHeight + 'px'; // Get it's height
-  elem.style.display = ''; //  Hide it again
-  return height;
-};
-
-var height = getHeight(); // Get the natural height
-elem.classList.add('is-visible'); // Make the element visible
-elem.style.height = height; // Update the max-height
-
-// Once the transition is complete, remove the inline max-height so the content can scale responsively
-window.setTimeout(function () {
-  elem.style.height = '';
-}, 350);
-
-};
-
-// Hide an element
-var hide = function (elem) {
-
-// Give the element a height to change from
-elem.style.height = elem.scrollHeight + 'px';
-
-// Set the height back to 0
-window.setTimeout(function () {
-  elem.style.height = '0';
-}, 1);
-
-// When the transition is complete, hide it
-window.setTimeout(function () {
-  elem.classList.remove('is-visible');
-}, 350);
-
-};
-
-// Toggle element visibility
-var toggle = function (elem, timing) {
-
-// If the element is visible, hide it
-if (elem.classList.contains('is-visible')) {
-  hide(elem);
-  return;
-}
-
-// Otherwise, show it
-show(elem);
-
-};
-
-// Listen for click events
-document.addEventListener('click', function (event) {
-
-// Make sure clicked element is our toggle
-if (!event.target.classList.contains('toggle')) return;
-
-// Prevent default link behavior
-event.preventDefault();
-
-// Get the content
-var content = document.querySelector(event.target.hash);
-if (!content) return;
-
-// Toggle the content
-toggle(content);
-
-}, false);
-</script>
+<script src="/assets/scripts/toggle.js"></script>
 
 </div>
 <a id="back_to_top" onclick="scrollToTop(700)"><i class="fas fa-arrow-circle-up"></i></a>
-<script>
-  window.onscroll = function() {scrollFunction()};
-
-  function scrollFunction() {
-      if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
-          document.getElementById("back_to_top").style.display = "block";
-      } else {
-          document.getElementById("back_to_top").style.display = "none";
-      }
-  }
-
-  function scrollToTop(scrollDuration) {
-    var scrollStep = -window.scrollY / (scrollDuration / 15),
-        scrollInterval = setInterval(function(){
-        if ( window.scrollY != 0 ) {
-            window.scrollBy( 0, scrollStep );
-        }
-        else clearInterval(scrollInterval); 
-        },15);
-  }
-  
-</script>
+<script src="/assets/scripts/scrollTop.js"></script>
     </div>
-  
+ 
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-124169554-1" async></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-124169554-1');
+    </script>
   </body>
 </html>

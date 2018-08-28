@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="description" content = "Personal blog about new technologies, JAM Stack and Jekyll">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Optimize site speed &middot; Borisov Vadim
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/main.min.css">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="/assets/font-awesome/fontello.css">
+  <!-- fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,700">
+  <!-- Icons -->
+  <!-- <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/favicon.png"> -->
+  <link rel="shortcut icon" href="/public/favicon.ico">
+</head>
+
+  <body>
+
+    <div class="sidebar">
+  <div class="sidebar-sticky">
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">Home</a>
+
+      
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/about.html">About me</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/work.html">Work</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item active" href="/blog.html">Blog</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/contacts.html">Contacts</a>
+          
+        
+      
+    </nav>
+  </div>
+
+  <div class="socials">
+  <ul class="socials_links">
+    
+    <li>
+      <a href="https://github.com/veax" target="_blank">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+    
+    <li>
+      <a href="https://www.facebook.com/profile.php?id=100001788716921" target="_blank">
+        <i class="fab fa-facebook-square"></i>
+      </a>
+    </li>
+    
+    <li>
+      <a href="https://vk.com/id151991161" target="_blank">
+        <i class="fab fa-vk"></i>
+      </a>
+    </li>
+    
+    <li>
+      <a href="https://www.instagram.com/veax/" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+</div>
+
+
+    <div class="content container">
+      <div class="post post_inner">
+  <h1 class="post-title">Optimize site speed</h1>
+  <span class="post-date">23 Aug 2018</span>
+  <p>Lately, I had a strong idea to optimize a page speed for my blog pages. Here are some of methods that I applied:</p>
+<h3 id="bundle-all-css-files-in-one-and-minify-it">Bundle all css files in one and minify it</h3>
+<p>For now the structure of folder is: 
+<img src="/assets/img/css_structure.png" alt="css structure" title="Css structure" />
+So in head we link multiples css files to retrieve all styles from server (hyde.css, poole.css etc)
+An idea is to convert all css files in sass partials files and to import them in main.sass file.
+To convert all css in sass I use <a href="http://css2sass.herokuapp.com/">http://css2sass.herokuapp.com/</a>
+Now I created a partials folder where I put hyde.sass, poole.sass and syntax.sass and after I imported this in the start of main.sass:</p>
+
+<figure class="highlight"><pre><code class="language-sass" data-lang="sass"><span class="c1">// IMPORT</span>
+<span class="k">@import</span> <span class="s">"./partials/poole"</span>
+<span class="k">@import</span> <span class="s">"./partials/syntax"</span>
+<span class="k">@import</span> <span class="s">"./partials/hyde"</span></code></pre></figure>
+
+<p>To compile sass I use vscode extension <em>Live Sass Compiler</em>, but we have to clarify config settings. For this we create <strong>.vscode</strong> folder in a root directory of a project and in this directory <strong>settings.json</strong> file. 
+Here’s the config</p>
+
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+  </span><span class="s2">"liveSassCompile.settings.excludeList"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"**/partials/**"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"liveSassCompile.settings.formats"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"compressed"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"extensionName"</span><span class="p">:</span><span class="w"> </span><span class="s2">".min.css"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"savePath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/public/css"</span><span class="p">,</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+	</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span></code></pre></figure>
+
+<p>We exclude a partials folder because we want to compile only main.sass. Also compiled css will be minified and put in a /public/css folder. <br />
+<img src="/assets/img/new_css_structure.jpg" alt="new css structure" title="New Css structure" />
+So in &lt;head&gt; of our .html file we have only one css file to request:</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html">  <span class="c">&lt;!-- CSS --&gt;</span>
+  <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"{{ site.baseurl }}public/css/main.min.css"</span><span class="nt">&gt;</span> </code></pre></figure>
+
+<p>We decreased the number of requests from 4 to 1 and compressed it.</p>
+
+<h3 id="customize-font-awesome">Customize font-awesome</h3>
+<p>When I started my blog, I just copied a cdn link to new font-awesome 5 and I used only icon classes that I needed. But this summer I have a slow internet connection and I noticed that request to font awesome cdn is one of the most slowest when I load an index page. Of course it is, because I load all library, there are tons of icons that I don’t use on my site. 
+I started from locally save a font awesome file and manually deleted all icons from this minified css file. But it’s not a best solution (and not fast). <br />
+Then I found <a href="http://fontello.com/">http://fontello.com/</a>. You choose only icons you need and save locally the files: css and fonts: I left .eot and .ttf types for old-browser support but you can use only .woff. This should be enough.</p>
+
+<p><img src="/assets/img/fontello.png" alt="http://fontello.com/" title="http://fontello.com/" /></p>
+
+<p>Yes, we don’t use cdn anymore, but even if we store fonts locally on the server it would decrease the size of loading ressources.</p>
+
+<h3 id="inline-styles">Inline styles</h3>
+
+<p>You can go further and compile your css style in <strong>_includes</strong> folder and after put in in your head like inline styles:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby">  <span class="o">&lt;</span><span class="n">style</span><span class="o">&gt;</span>
+   <span class="p">{</span><span class="sx">% include </span><span class="n">main</span><span class="p">.</span><span class="nf">min</span><span class="p">.</span><span class="nf">css</span> <span class="sx">%} 
+  &lt;/style&gt;</span></code></pre></figure>
+
+<h3 id="results">Results</h3>
+<p>I decreased size of index.page from 223kb to 179kb and from 17 requests to 14 requests. <br />
+Furthermore I don’t use jQuery library, all scripts are on vanilla js. <br />
+Also, don’t forget to compress your images for web before uploading because images is a 90% of page size in average. That’s all, thank you for reading and happy coding!</p>
+
+  <hr>
+<div id="share-bar">
+
+  <h4>Share this:</h4>
+
+  <div class="share-buttons">
+    <a  href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000//web/2018/08/23/optimize-site-speed.html"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on Facebook" >
+        <i class="fab fa-facebook-square share-button"> facebook</i>
+    </a>
+
+    <a  href="https://vk.com/share.php?url=http://localhost:4000//web/2018/08/23/optimize-site-speed.html"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on VK" >
+        <i class="fab fa-vk share-button"> vk</i>
+    </a>
+
+    <a  href="https://twitter.com/intent/tweet?text=Optimize site speed&url=http://localhost:4000//web/2018/08/23/optimize-site-speed.html"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on Twitter" >
+        <i class="fab fa-twitter share-button"> twitter</i>
+    </a>
+    <a  href="https://plus.google.com/share?url=http://localhost:4000//web/2018/08/23/optimize-site-speed.html"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on Google+" >
+        <i class="fab fa-google-plus share-button"> google</i>
+    </a>
+
+    <a  href="http://pinterest.com/pin/create/button/?url=http://localhost:4000//web/2018/08/23/optimize-site-speed.html"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on Pinterest" >
+        <i class="fab fa-pinterest-p share-button"> pinterest</i>
+    </a>
+
+    <a  href="http://www.tumblr.com/share/link?url=http://localhost:4000//web/2018/08/23/optimize-site-speed.html"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on Tumblr" >
+        <i class="fab fa-tumblr share-button"> tumblr</i>
+    </a>
+    <a  href="http://www.reddit.com/submit?url=http://localhost:4000//web/2018/08/23/optimize-site-speed.html"
+        onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
+        title="Share on Reddit" >
+        <i class="fab fa-reddit-alien share-button"> reddit</i>
+    </a>
+
+
+  </div>
+</div>
+  <div id="disqus_thread"></div>
+<script>
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://veax-blog.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+                            
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/web/2018/08/19/deploy-site-on-netlify.html">
+            Deploy a photography portfolio site on Netlify
+            <small>19 Aug 2018</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/web/2018/08/06/using-webpack-for-fullstack-app.html">
+            Using webpack for fullstack app
+            <small>06 Aug 2018</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/jekyll/2018/07/28/introducing-hyde.html">
+            Install Hyde theme on Jekyll version 3
+            <small>28 Jul 2018</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+    </div>
+ 
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-124169554-1" async></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-124169554-1');
+    </script>
+  </body>
+</html>
