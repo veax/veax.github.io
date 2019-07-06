@@ -123,15 +123,15 @@
 <p>In this app we use a Wikipedia API to do a get requests and show first 10 articles on a response from wikipedia. One of the actions that this API provides called <i>open search</i>: <blockquote>MediaWiki API:Opensearch. <br> Get pages whose name matches a given string. </blockquote> You can read more about wiki opensearch <a href="https://www.mediawiki.org/wiki/API:Opensearch">here</a>.</p> 
 <p> We have to use jsonp datatype because of <strong> No 'Access-Control-Allow-Origin' header problem </strong> in case of simple json. It`s related to a Cross Origin Requests parameters. So we grub search request input every time a user press a key in a search bar and store it in a variable. Then we can compose our url for ajax request: </p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#search'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'input'</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span><span class="p">{</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#search</span><span class="dl">'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">input</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span><span class="p">{</span>
   <span class="kd">let</span> <span class="nx">req</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>     <span class="c1">// grub search input</span>
-  <span class="kd">let</span> <span class="nx">req_url</span> <span class="o">=</span> <span class="s1">'https://en.wikipedia.org/w/api.php?action=opensearch&amp;format=json&amp;search='</span><span class="o">+</span><span class="nx">req</span><span class="p">;</span> </code></pre></figure>
+  <span class="kd">let</span> <span class="nx">req_url</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">https://en.wikipedia.org/w/api.php?action=opensearch&amp;format=json&amp;search=</span><span class="dl">'</span><span class="o">+</span><span class="nx">req</span><span class="p">;</span> </code></pre></figure>
 
 <p>On a success response we grub an array of articles and output each of them on a screen with a title, desciption and a link to an actual article on Wikipedia:</p>
 
 <figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">success</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
   <span class="kd">let</span> <span class="nx">articles</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
-  <span class="kd">let</span> <span class="nx">output</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">output</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span>
   <span class="nx">$</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">articles</span><span class="p">,</span> <span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="nx">article</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="nx">output</span> <span class="o">+=</span> <span class="s2">`
     &lt;li class = "article_card"&gt;
@@ -187,7 +187,7 @@
   <li>Articles links</li>
 </ul>
 <p>We access these properties in a each loop for <ins>all articles</ins>. Finally we insert output in a DOM: </p>
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s1">'#articles'</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">output</span><span class="p">);</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#articles</span><span class="dl">'</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">output</span><span class="p">);</span></code></pre></figure>
 
 <h3>Empty user input problem</h3>
 <p>If we stop here, the code will work, but what if user will type some letters in the input field and clear it after? We will always see the returned articles on the request by first letter entered by user. Example: </p>
@@ -213,11 +213,11 @@
 <img src="/assets/img/wiki_bug.png" alt="wiki_pb">
 <p>To avoid this, we can simply check if a use input is empty or not: </p>
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="k">if</span> <span class="p">(</span><span class="nx">req</span> <span class="o">!=</span> <span class="s1">''</span><span class="p">){</span>
-  <span class="nx">$</span><span class="p">(</span><span class="s1">'#articles'</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">output</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="k">if</span> <span class="p">(</span><span class="nx">req</span> <span class="o">!=</span> <span class="dl">''</span><span class="p">){</span>
+  <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#articles</span><span class="dl">'</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="nx">output</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="k">else</span> <span class="p">{</span>
-  <span class="nx">$</span><span class="p">(</span><span class="s1">'#articles'</span><span class="p">).</span><span class="nx">empty</span><span class="p">();</span> <span class="c1">//clear output if no data coming</span>
+  <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#articles</span><span class="dl">'</span><span class="p">).</span><span class="nx">empty</span><span class="p">();</span> <span class="c1">//clear output if no data coming</span>
 <span class="p">}</span></code></pre></figure>
 
 
