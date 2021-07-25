@@ -1,0 +1,201 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1.6em;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: #00487C;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+body .container {
+  display: flex;
+}
+
+@media screen and (max-width: 770px) {
+  body .container {
+    flex-direction: column;
+  }
+}
+
+body .container nav {
+  width: 20vw;
+  min-width: 200px;
+  border-right: 2px solid #808080;
+  position: fixed;
+  z-index: 1;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow-y: scroll;
+}
+
+@media screen and (max-width: 770px) {
+  body .container nav {
+    position: static;
+    width: 100%;
+    overflow-y: hidden;
+    border-right: 0;
+  }
+}
+
+body .container nav header {
+  text-align: center;
+  padding: 1em 0;
+}
+
+body .container nav header h1 {
+  font-weight: 500;
+}
+
+body .container nav ul {
+  border-top: 1px solid #808080;
+}
+
+@media screen and (max-width: 770px) {
+  body .container nav ul {
+    height: 200px;
+    overflow-y: scroll;
+    border-bottom: 2px solid #808080;
+    border-right: 2px solid #808080;
+  }
+}
+
+body .container nav ul a.nav-link {
+  display: inline-block;
+  border-bottom: 1px solid #808080;
+  width: 100%;
+  padding: 0.5em 0;
+  text-align: center;
+}
+
+body .container nav ul a.nav-link:hover {
+  background: #eaeaea;
+}
+
+body .container main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20vw;
+  align-items: center;
+}
+
+@media screen and (max-width: 900px) {
+  body .container main {
+    margin-left: 200px;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  body .container main {
+    margin-left: 5%;
+    margin-right: 5%;
+    align-items: flex-start;
+  }
+}
+
+body .container main section {
+  width: 90%;
+  padding: 1em 5em 1em 0;
+}
+
+@media screen and (max-width: 770px) {
+  body .container main section {
+    width: 90%;
+    padding-right: 0;
+  }
+}
+
+body .container main section header {
+  padding: 1em 0;
+}
+
+body .container main section header h3 {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+body .container main section p {
+  padding-left: 2em;
+  margin: 1em 0;
+}
+
+@media screen and (max-width: 770px) {
+  body .container main section p {
+    padding-left: 1em;
+  }
+}
+
+body .container main section ul {
+  padding-left: 3em;
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
+body .container main section ul li {
+  margin: 1em 0;
+}
+
+body .container main section pre {
+  background: #f0f0f0;
+  margin-left: 5.5em;
+  width: 80%;
+  padding-top: 1.6em;
+  white-space: no-wrap;
+  overflow-x: scroll;
+}
+
+@media screen and (max-width: 900px) {
+  body .container main section pre {
+    margin-left: 2.5em;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  body .container main section pre {
+    margin-left: 1em;
+  }
+}
+
+body footer {
+  margin-top: 3em;
+  margin-left: 20vw;
+  padding: 1em 0;
+  text-align: center;
+  background: #bad2d6;
+}
+
+@media screen and (max-width: 900px) {
+  body footer {
+    margin-left: 200px;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  body footer {
+    margin-left: 0;
+    padding: 1em 2em;
+  }
+}
+
+body footer a:hover {
+  text-decoration: underline;
+}
+/*# sourceMappingURL=main.css.map */
