@@ -1,0 +1,20 @@
+---
+layout: default
+---
+<div class="work_outer">
+  <div class="title_outer">
+    <h1 class="page-title work_title">{{ page.title }}</h1>
+    <a href="{{page.source}}" class="work_link" target="_blank">source</a>
+    {% if page.demo != null %}
+      <a href="{{page.demo}}" class="work_link" target="_blank">demo</a>
+    {%endif%}
+  </div>
+  <img src="{{page.img-url}}" alt="" height = 300px>
+  <div class="work_container">
+    <div class="center">
+      <h5>Stack of technologies: {{page.stack}}</h5>
+      <i>{{page.description}}</i>
+    </div>
+    {{content}}
+  </div>
+</div>

@@ -1,0 +1,23 @@
+---
+layout: work_inner
+title: Quote Machine
+img-url: '/assets/img/works/quote_machine.png'
+source: https://github.com/veax/Quote-Machine
+demo: https://codepen.io/veax/full/XYRoXd/
+stack: HTML, CSS, Bootstrap, jQuery, API
+description: Click on button to get a quote. Works with api <a href="https://forismatic.com/en/api/" target="_blank">https://forismatic.com/en/api/</a>
+---
+
+
+<h2>How it works</h2>
+<p>To fetch quotes from provided API, we add function on button click event. According to documentation on forismatic.com, all HTTP requests call on: <strong>http://api.forismatic.com/api/1.0/0</strong>. To get a random quote we need a method = <strong>getQuote</strong>. Also we need to determine a format of returned data: <i>jsonp</i>. So we can store our url in a variable: </p>
+{% highlight js %}
+var url = "https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?";
+{% endhighlight%}
+<p>Now we use a shorthand Ajax function <strong>$.getJSON()</strong> and on a callback we modify html content of <i>quote</i> and <i>author</i> node`s in a DOM-tree: we passing receiving data from API: data.quoteText and data.quoteAuthor respectively:</p>
+{% highlight js %}
+$.getJSON(url, function(data){
+  $(".quote").html('"'+data.quoteText+'"');
+  $(".author").html("- " + data.quoteAuthor);
+});
+{% endhighlight%}

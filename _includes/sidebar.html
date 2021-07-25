@@ -1,0 +1,23 @@
+<div class="sidebar">
+  <div class="sidebar-sticky">
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}">Home</a>
+
+      {% assign pages_list = site.pages | sort:"order" %}
+      {% for node in pages_list %}
+        {% if node.title != null %}
+          {% if node.layout == "blog" %}
+            <a class="sidebar-nav-item{% if page.url == node.url or page.layout == 'post' %} active{% endif %}" href="{{ node.url }}">{{ node.title }}</a>
+          {% elsif node.layout == "page" %}
+            <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}">{{ node.title }}</a>
+          {% elsif node.url == "/work.html" %}
+            <a class="sidebar-nav-item{% if page.url == node.url or page.layout == 'work_inner' %} active{% endif %}" href="{{ node.url }}">{{ node.title }}</a>
+          {%endif%}
+        {% endif %}
+      {% endfor %}
+    </nav>
+  </div>
+
+  {% include socials.html socclass='socials'%}
+
+</div>

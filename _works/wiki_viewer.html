@@ -1,0 +1,90 @@
+---
+layout: work_inner
+title: Wikipedia Viewer
+img-url: '/assets/img/works/wiki_viewer.png'
+source: https://github.com/veax/Wikipedia-Viewer
+demo: https://codepen.io/veax/pen/wxzeOy
+stack: HTML, Sass, jQuery, API
+description: Real-time filtered search to Wikipedia api with ajax requests using JSONP
+---
+<h2>How it works</h2>
+<p>In this app we use a Wikipedia API to do a get requests and show first 10 articles on a response from wikipedia. One of the actions that this API provides called <i>open search</i>: <blockquote>MediaWiki API:Opensearch. <br> Get pages whose name matches a given string. </blockquote> You can read more about wiki opensearch <a href="https://www.mediawiki.org/wiki/API:Opensearch">here</a>.</p> 
+<p> We have to use jsonp datatype because of <strong> No 'Access-Control-Allow-Origin' header problem </strong> in case of simple json. It`s related to a Cross Origin Requests parameters. So we grub search request input every time a user press a key in a search bar and store it in a variable. Then we can compose our url for ajax request: </p>
+
+{% highlight js %}
+$('#search').on('input', (e) =>{
+  let req = e.target.value;     // grub search input
+  let req_url = 'https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search='+req; 
+{% endhighlight %}
+
+<p>On a success response we grub an array of articles and output each of them on a screen with a title, desciption and a link to an actual article on Wikipedia:</p>
+
+{% highlight js %}
+success: function(data){
+  let articles = data[1];
+  let output = '';
+  $.each(articles, (index, article) => {
+    output += `
+    <li class = "article_card">
+      <a href="${data[3][index]}" target="_blank">
+        <h3>${article}</h3>
+        <p class="description">${data[2][index]}</p>
+      </a>
+    </li>`
+  });
+{% endhighlight %}
+
+<p>Let`s output response jsonp data in a console:</p>
+
+{% include modal.html src='/assets/img/wiki_api.png'%}
+
+<span>We obtain an object with 4 properties:</span>
+<ul>
+  <li>User input</li>
+  <li>An array of relevant articles names</li>
+  <li>Articles description</li>
+  <li>Articles links</li>
+</ul>
+<p>We access these properties in a each loop for <ins>all articles</ins>. Finally we insert output in a DOM: </p>
+{%highlight js%}
+$('#articles').html(output);
+{%endhighlight%}
+
+<h3>Empty user input problem</h3>
+<p>If we stop here, the code will work, but what if user will type some letters in the input field and clear it after? We will always see the returned articles on the request by first letter entered by user. Example: </p>
+<table>
+  <thead>
+    <tr>
+      <th>User input</th>
+      <th>data[0]</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>react</td>
+      <td>r</td>
+    </tr>
+    <tr>
+      <td>vue</td>
+      <td>v</td>
+    </tr>
+  </tbody>
+</table>
+<p>data[0] will return the first letter entered by user when he clears out all input:</p>
+<img src="/assets/img/wiki_bug.png" alt="wiki_pb">
+<p>To avoid this, we can simply check if a use input is empty or not: </p>
+
+{%highlight js%}
+if (req != ''){
+  $('#articles').html(output);
+}
+else {
+  $('#articles').empty(); //clear output if no data coming
+}
+{%endhighlight%}
+
+
+
+
+
+

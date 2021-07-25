@@ -1,0 +1,16 @@
+---
+layout: page
+title: Contacts
+order: 5
+---
+<div class="contacts_container">
+  <p id="contacts_title">Ask me whatever you want ;)</p>
+  <form action="https://formspree.io/veaxman@gmail.com" method='POST' class="contacts_form">
+    Name: <input type="text" name='name' placeholder='your name'>
+    Email: <input type="email" name='_replyto' placeholder='your email to respond' required>
+    Message: <textarea name="message" cols="30" rows="5" placeholder='type your message...' required></textarea>
+    <input type="submit" value='Send'>
+  </form>
+
+  {% include noscript.html %}
+</div>

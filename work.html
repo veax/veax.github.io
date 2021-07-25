@@ -1,0 +1,17 @@
+---
+layout: default
+title: Work
+order: 3
+---
+
+<div class="works_container">
+  {% for work in site.works %}
+  <!-- {{work.slug}} - Slugified title from the document’s filename (any character except numbers and letters is replaced as hyphen). -->
+  <a href="{{site.baseurl}}works/{{work.slug}}" class="work">
+    <div class="work_bg" style="background: url({{work.img-url}}) no-repeat center center;background-size: cover;"></div>
+    <h4>{{work.title}}</h4>
+  </a>
+  {% endfor %}
+</div>
+
+
