@@ -119,8 +119,8 @@ They provide a CMS for your jekyll site, but I wanted a total power to custom my
 
 <h2 id="gemfile">Gemfile</h2>
 
-<p>Now we install bundled Gems into RubyGems (locally) using sudo: <code class="highlighter-rouge">sudo bundle install</code> .
-After we run a server: <code class="highlighter-rouge">jekyll serve --port 5500</code>
+<p>Now we install bundled Gems into RubyGems (locally) using sudo: <code class="language-plaintext highlighter-rouge">sudo bundle install</code> .
+After we run a server: <code class="language-plaintext highlighter-rouge">jekyll serve --port 5500</code>
 Probably, you will have a warning something like me:</p>
 <div class="message warning">
   WARN: Unresolved specs during Gem::Specification.reset:
@@ -128,26 +128,26 @@ Probably, you will have a warning something like me:</p>
     rb-fsevent (&gt;= 0.9.4, ~&gt; 0.9)
     ffi (&lt; 2, &gt;= 0.5.0)
 </div>
-<p>This is due to a multiple versions of the same gems, check out: <code class="highlighter-rouge">gem list eventmachine</code>:</p>
+<p>This is due to a multiple versions of the same gems, check out: <code class="language-plaintext highlighter-rouge">gem list eventmachine</code>:</p>
 
 <figure class="highlight"><pre><code class="language-html" data-lang="html">LOCAL GEMS
 
 eventmachine (1.2.7, 1.2.5)`</code></pre></figure>
 
-<p>run <code class="highlighter-rouge">sudo gem cleanup eventmachine rb-fsevent ffi</code> resolve a problem. After I have a jekyll version 3.8.3, so compare your current version of jekyll with that in a Gemfile, and if it’s different, replace with your current one.
-After type <code class="highlighter-rouge">bundle update jekyll</code> again <code class="highlighter-rouge">jekyll serve</code>. If you have an error like:</p>
+<p>run <code class="language-plaintext highlighter-rouge">sudo gem cleanup eventmachine rb-fsevent ffi</code> resolve a problem. After I have a jekyll version 3.8.3, so compare your current version of jekyll with that in a Gemfile, and if it’s different, replace with your current one.
+After type <code class="language-plaintext highlighter-rouge">bundle update jekyll</code> again <code class="language-plaintext highlighter-rouge">jekyll serve</code>. If you have an error like:</p>
 <div class="message error">
   Error:  (/home/veax/Documents/projects/dev/photography_site/aperture-jekyll-template/_config.yml): mapping values are not allowed in this context at line 13 column 7
 </div>
 <p>just shift author name email etc. values on the same line with others values and restart a server.</p>
 
 <h2 id="link-styles-sheets">Link styles sheets</h2>
-<p>If you go now on a localhost (with the port that you choose - :4000 by default), and you see plain html text - you need to remove a baseurl in a _config.yml file if you added anyone before like this: <code class="highlighter-rouge">baseurl: </code>. Otherwise the paths to styles won’t be correct.</p>
+<p>If you go now on a localhost (with the port that you choose - :4000 by default), and you see plain html text - you need to remove a baseurl in a _config.yml file if you added anyone before like this: <code class="language-plaintext highlighter-rouge">baseurl: </code>. Otherwise the paths to styles won’t be correct.</p>
 
 <h2 id="uploads-photo-system">Uploads Photo System</h2>
 
 <p>Open an index.html in your favorite text editor <del>(vscode of course)</del>.
-In the front matter (text wrapped in 3 dashes in a start of file) you can see a <code class="highlighter-rouge">photos</code> variable with image and caption for which one. And in the body we have a loop through all photos mentionned in front matter of index.html. By the way, the photos will upload in a uploads folder and the caption and src you have to add in index.html
+In the front matter (text wrapped in 3 dashes in a start of file) you can see a <code class="language-plaintext highlighter-rouge">photos</code> variable with image and caption for which one. And in the body we have a loop through all photos mentionned in front matter of index.html. By the way, the photos will upload in a uploads folder and the caption and src you have to add in index.html
 But I don’t want at first to add a photo in a folder and add a caption with image name yet in a front matter. This is a real pain and waste of time!</p>
 
 <p>We can use site.static_files property to have access to our images in a loop. To avoid to have all the static files in our loop, we can add a condition that image path contains name of a folder where it is located:</p>
@@ -217,41 +217,41 @@ That’s all, thank you for reading and happy coding!</p>
   <h4>Share this:</h4>
 
   <div class="share-buttons">
-    <a  href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000//web/2018/08/19/deploy-site-on-netlify.html"
+    <a  href="https://www.facebook.com/sharer/sharer.php?u=//web/2018/08/19/deploy-site-on-netlify.html"
         onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
         title="Share on Facebook" >
         <i class="fab fa-facebook-square share-button"> facebook</i>
     </a>
 
-    <a  href="https://vk.com/share.php?url=http://localhost:4000//web/2018/08/19/deploy-site-on-netlify.html"
+    <a  href="https://vk.com/share.php?url=//web/2018/08/19/deploy-site-on-netlify.html"
         onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
         title="Share on VK" >
         <i class="fab fa-vk share-button"> vk</i>
     </a>
 
-    <a  href="https://twitter.com/intent/tweet?text=Deploy a photography portfolio site on Netlify&url=http://localhost:4000//web/2018/08/19/deploy-site-on-netlify.html"
+    <a  href="https://twitter.com/intent/tweet?text=Deploy a photography portfolio site on Netlify&url=//web/2018/08/19/deploy-site-on-netlify.html"
         onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
         title="Share on Twitter" >
         <i class="fab fa-twitter share-button"> twitter</i>
     </a>
-    <a  href="https://plus.google.com/share?url=http://localhost:4000//web/2018/08/19/deploy-site-on-netlify.html"
+    <a  href="https://plus.google.com/share?url=//web/2018/08/19/deploy-site-on-netlify.html"
         onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
         title="Share on Google+" >
         <i class="fab fa-google-plus share-button"> google</i>
     </a>
 
-    <a  href="http://pinterest.com/pin/create/button/?url=http://localhost:4000//web/2018/08/19/deploy-site-on-netlify.html"
+    <a  href="http://pinterest.com/pin/create/button/?url=//web/2018/08/19/deploy-site-on-netlify.html"
         onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
         title="Share on Pinterest" >
         <i class="fab fa-pinterest-p share-button"> pinterest</i>
     </a>
 
-    <a  href="http://www.tumblr.com/share/link?url=http://localhost:4000//web/2018/08/19/deploy-site-on-netlify.html"
+    <a  href="http://www.tumblr.com/share/link?url=//web/2018/08/19/deploy-site-on-netlify.html"
         onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
         title="Share on Tumblr" >
         <i class="fab fa-tumblr share-button"> tumblr</i>
     </a>
-    <a  href="http://www.reddit.com/submit?url=http://localhost:4000//web/2018/08/19/deploy-site-on-netlify.html"
+    <a  href="http://www.reddit.com/submit?url=//web/2018/08/19/deploy-site-on-netlify.html"
         onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
         title="Share on Reddit" >
         <i class="fab fa-reddit-alien share-button"> reddit</i>

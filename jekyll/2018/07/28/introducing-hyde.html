@@ -119,7 +119,7 @@
 <ul>
   <li>Complete Jekyll setup included (layouts, config, <a href="/404">404</a>, RSS feed, posts, and <a href="/about">example page</a>)</li>
   <li>Mobile friendly design and development</li>
-  <li>Easily scalable text and component sizing with <code class="highlighter-rouge">rem</code> units in the CSS</li>
+  <li>Easily scalable text and component sizing with <code class="language-plaintext highlighter-rouge">rem</code> units in the CSS</li>
   <li>Support for a wide gamut of HTML elements</li>
   <li>Related posts (time-based, because Jekyll) below each post</li>
   <li>Syntax highlighting, courtesy Pygments (the Python-based code snippet highlighter)</li>
@@ -131,8 +131,8 @@
 
 <ul>
   <li>Sidebar includes support for textual modules and a dynamically generated navigation with active link support</li>
-  <li>Two orientations for content and sidebar, default (left sidebar) and <a href="https://github.com/poole/lanyon#reverse-layout">reverse</a> (right sidebar), available via <code class="highlighter-rouge">&lt;body&gt;</code> classes</li>
-  <li><a href="https://github.com/poole/hyde#themes">Eight optional color schemes</a>, available via <code class="highlighter-rouge">&lt;body&gt;</code> classes</li>
+  <li>Two orientations for content and sidebar, default (left sidebar) and <a href="https://github.com/poole/lanyon#reverse-layout">reverse</a> (right sidebar), available via <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code> classes</li>
+  <li><a href="https://github.com/poole/hyde#themes">Eight optional color schemes</a>, available via <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code> classes</li>
 </ul>
 
 <p><a href="https://github.com/poole/hyde#readme">Head to the readme</a> to learn more.</p>
@@ -143,25 +143,25 @@
 
 <h3 id="installation">Installation</h3>
 
-<p>So, clone the project from github: <code class="highlighter-rouge">git clone https://github.com/poole/hyde.git</code> and cd into downloaded folder. Check out your current version of jekyll (if you didn’t installed it yet, go to <a href="https://jekyllrb.com/">https://jekyllrb.com/</a>) : <code class="highlighter-rouge">jekyll --version</code> For me it’s <code class="highlighter-rouge">jekyll 3.8.3
+<p>So, clone the project from github: <code class="language-plaintext highlighter-rouge">git clone https://github.com/poole/hyde.git</code> and cd into downloaded folder. Check out your current version of jekyll (if you didn’t installed it yet, go to <a href="https://jekyllrb.com/">https://jekyllrb.com/</a>) : <code class="language-plaintext highlighter-rouge">jekyll --version</code> For me it’s <code class="language-plaintext highlighter-rouge">jekyll 3.8.3
 </code></p>
 
-<p>Now if you try to running a server by taping <code class="highlighter-rouge">jekyll serve</code> you will have a warning:</p>
+<p>Now if you try to running a server by taping <code class="language-plaintext highlighter-rouge">jekyll serve</code> you will have a warning:</p>
 <div class="message warning"> Deprecation: You appear to have pagination turned on, but you haven't included the `jekyll-paginate` gem. Ensure you have `plugins: [jekyll-paginate]` in your configuration file.
 </div>
 <p>and the error:</p>
 <div class="message error"> Since v3.0, permalinks for pages in subfolders must be relative to the site source directory, not the parent directory. Check https://jekyllrb.com/docs/upgrading/ for more info. 
 </div>
-<p>So, the permalinks are deprecated in version 3 - we can remove a line <code class="highlighter-rouge">relative_permalinks: true</code> from <em>_config.yml</em> and add this in the end of the file: <br /></p>
+<p>So, the permalinks are deprecated in version 3 - we can remove a line <code class="language-plaintext highlighter-rouge">relative_permalinks: true</code> from <em>_config.yml</em> and add this in the end of the file: <br /></p>
 
 <figure class="highlight"><pre><code class="language-html" data-lang="html">plugins:
   - jekyll-paginate
   - jekyll-gist
   - redcarpet</code></pre></figure>
 
-<p>Now check out list of local gems: <code class="highlighter-rouge">gem list</code>
-If you don’t have a redcarpet, you need to install it: <code class="highlighter-rouge">sudo gem install redcarpet</code> 
-Finally, try to run a server once again: <code class="highlighter-rouge">jekyll serve</code> and go to <code class="highlighter-rouge">localhost:4000</code>. Normally, you must see an index page of hyde theme.</p>
+<p>Now check out list of local gems: <code class="language-plaintext highlighter-rouge">gem list</code>
+If you don’t have a redcarpet, you need to install it: <code class="language-plaintext highlighter-rouge">sudo gem install redcarpet</code> 
+Finally, try to run a server once again: <code class="language-plaintext highlighter-rouge">jekyll serve</code> and go to <code class="language-plaintext highlighter-rouge">localhost:4000</code>. Normally, you must see an index page of hyde theme.</p>
 
 <p>If you have any troubles, post it in comments and happy coding!</p>
 
@@ -172,41 +172,41 @@ Finally, try to run a server once again: <code class="highlighter-rouge">jekyll 
   <h4>Share this:</h4>
 
   <div class="share-buttons">
-    <a  href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000//jekyll/2018/07/28/introducing-hyde.html"
+    <a  href="https://www.facebook.com/sharer/sharer.php?u=//jekyll/2018/07/28/introducing-hyde.html"
         onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
         title="Share on Facebook" >
         <i class="fab fa-facebook-square share-button"> facebook</i>
     </a>
 
-    <a  href="https://vk.com/share.php?url=http://localhost:4000//jekyll/2018/07/28/introducing-hyde.html"
+    <a  href="https://vk.com/share.php?url=//jekyll/2018/07/28/introducing-hyde.html"
         onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
         title="Share on VK" >
         <i class="fab fa-vk share-button"> vk</i>
     </a>
 
-    <a  href="https://twitter.com/intent/tweet?text=Install Hyde theme on Jekyll version 3&url=http://localhost:4000//jekyll/2018/07/28/introducing-hyde.html"
+    <a  href="https://twitter.com/intent/tweet?text=Install Hyde theme on Jekyll version 3&url=//jekyll/2018/07/28/introducing-hyde.html"
         onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
         title="Share on Twitter" >
         <i class="fab fa-twitter share-button"> twitter</i>
     </a>
-    <a  href="https://plus.google.com/share?url=http://localhost:4000//jekyll/2018/07/28/introducing-hyde.html"
+    <a  href="https://plus.google.com/share?url=//jekyll/2018/07/28/introducing-hyde.html"
         onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
         title="Share on Google+" >
         <i class="fab fa-google-plus share-button"> google</i>
     </a>
 
-    <a  href="http://pinterest.com/pin/create/button/?url=http://localhost:4000//jekyll/2018/07/28/introducing-hyde.html"
+    <a  href="http://pinterest.com/pin/create/button/?url=//jekyll/2018/07/28/introducing-hyde.html"
         onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
         title="Share on Pinterest" >
         <i class="fab fa-pinterest-p share-button"> pinterest</i>
     </a>
 
-    <a  href="http://www.tumblr.com/share/link?url=http://localhost:4000//jekyll/2018/07/28/introducing-hyde.html"
+    <a  href="http://www.tumblr.com/share/link?url=//jekyll/2018/07/28/introducing-hyde.html"
         onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
         title="Share on Tumblr" >
         <i class="fab fa-tumblr share-button"> tumblr</i>
     </a>
-    <a  href="http://www.reddit.com/submit?url=http://localhost:4000//jekyll/2018/07/28/introducing-hyde.html"
+    <a  href="http://www.reddit.com/submit?url=//jekyll/2018/07/28/introducing-hyde.html"
         onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=900,height=500,toolbar=1,resizable=0'); return false;"
         title="Share on Reddit" >
         <i class="fab fa-reddit-alien share-button"> reddit</i>
