@@ -148,6 +148,11 @@ So in &lt;head&gt; of our .html file we have only one css file to request:</p>
 <p>We decreased the number of requests from 4 to 1 and compressed it.</p>
 
 <h3 id="customize-font-awesome">Customize font-awesome</h3>
+<p>Update: thanks to feedback from Amanda I leave here best solution to optimize icons bundle: </p>
+	      <blockquote>While fontello.com does a good job, it only allows you to create favicons from pictures that are up to 2 MB in size.
+After some exploring I found this other tool and I wanted to suggest you show it along that one.
+https://www.websiteplanet.com/webtools/favicon-generator/
+this tool allows you to create favicons from pictures that are up to 5 MB from either JPG, PNG or GIF or even from a gallery!</blockquote>
 <p>When I started my blog, I just copied a cdn link to new font-awesome 5 and I used only icon classes that I needed. But this summer I have a slow internet connection and I noticed that request to font awesome cdn is one of the most slowest when I load an index page. Of course it is, because I load all library, there are tons of icons that I don’t use on my site. 
 I started from locally save a font awesome file and manually deleted all icons from this minified css file. But it’s not a best solution (and not fast). <br />
 Then I found <a href="http://fontello.com/">http://fontello.com/</a>. You choose only icons you need and save locally the files: css and fonts: I left .eot and .ttf types for old-browser support but you can use only .woff. This should be enough.</p>
