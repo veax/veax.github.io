@@ -3,9 +3,12 @@ layout: post
 title: Optimize site speed
 categories: web
 ---
+
 Lately, I had a strong idea to optimize a page speed for my blog pages. Here are some of methods that I applied:
+
 ### Bundle all css files in one and minify it
-For now the structure of folder is: 
+
+For now the structure of folder is:
 ![css structure](/assets/img/css_structure.png "Css structure")
 So in head we link multiples css files to retrieve all styles from server (hyde.css, poole.css etc)
 An idea is to convert all css files in sass partials files and to import them in main.sass file.
@@ -19,36 +22,45 @@ Now I created a partials folder where I put hyde.sass, poole.sass and syntax.sas
 @import "./partials/hyde"
 {% endhighlight %}
 
-To compile sass I use vscode extension *Live Sass Compiler*, but we have to clarify config settings. For this we create **.vscode** folder in a root directory of a project and in this directory **settings.json** file. 
+To compile sass I use vscode extension _Live Sass Compiler_, but we have to clarify config settings. For this we create **.vscode** folder in a root directory of a project and in this directory **settings.json** file.
 Here's the config
 
 {% highlight json %}
 {
-  "liveSassCompile.settings.excludeList": [
-    "**/partials/**"
-  ],
-  "liveSassCompile.settings.formats":[
-    {
-        "format": "compressed",
-        "extensionName": ".min.css",
-        "savePath": "/public/css",
-    }
-	]
+"liveSassCompile.settings.excludeList": [
+"**/partials/**"
+],
+"liveSassCompile.settings.formats":[
+{
+"format": "compressed",
+"extensionName": ".min.css",
+"savePath": "/public/css",
+}
+]
 }
 {% endhighlight %}
 
 We exclude a partials folder because we want to compile only main.sass. Also compiled css will be minified and put in a /public/css folder. <br>
 ![new css structure](/assets/img/new_css_structure.jpg "New Css structure")
-So in <head> of our .html file we have only one css file to request: 
+So in <head> of our .html file we have only one css file to request:
 {% highlight html %}
+
   <!-- CSS -->
-  {% raw %}<link rel="stylesheet" href="{{ site.baseurl }}public/css/main.min.css"> {% endraw %}
+
+{% raw %}<link rel="stylesheet" href="{{ site.baseurl }}public/css/main.min.css"> {% endraw %}
 {% endhighlight %}
 
 We decreased the number of requests from 4 to 1 and compressed it.
 
+Update: thanks to feedback from Amanda I leave here best solution to optimize icons bundle:
+_While fontello.com does a good job, it only allows you to create favicons from pictures that are up to 2 MB in size.
+After some exploring I found this other tool and I wanted to suggest you show it along that one.
+https://www.websiteplanet.com/webtools/favicon-generator/
+this tool allows you to create favicons from pictures that are up to 5 MB from either JPG, PNG or GIF or even from a gallery!_
+
 ### Customize font-awesome
-When I started my blog, I just copied a cdn link to new font-awesome 5 and I used only icon classes that I needed. But this summer I have a slow internet connection and I noticed that request to font awesome cdn is one of the most slowest when I load an index page. Of course it is, because I load all library, there are tons of icons that I don't use on my site. 
+
+When I started my blog, I just copied a cdn link to new font-awesome 5 and I used only icon classes that I needed. But this summer I have a slow internet connection and I noticed that request to font awesome cdn is one of the most slowest when I load an index page. Of course it is, because I load all library, there are tons of icons that I don't use on my site.
 I started from locally save a font awesome file and manually deleted all icons from this minified css file. But it's not a best solution (and not fast). <br>
 Then I found [http://fontello.com/](http://fontello.com/). You choose only icons you need and save locally the files: css and fonts: I left .eot and .ttf types for old-browser support but you can use only .woff. This should be enough.
 
@@ -58,15 +70,18 @@ Yes, we don't use cdn anymore, but even if we store fonts locally on the server 
 
 ### Inline styles
 
-You can go further and compile your css style in **_includes** folder and after put in in your head like inline styles:
+You can go further and compile your css style in **\_includes** folder and after put in in your head like inline styles:
 
 {% highlight ruby %}
+
   <style>
   {%raw%} {% include main.min.css %} {%endraw%}
   </style>
+
 {% endhighlight %}
 
 ### Results
+
 I decreased size of index.page from 223kb to 179kb and from 17 requests to 14 requests. <br>
 Furthermore I don't use jQuery library, all scripts are on vanilla js. <br>
 Also, don't forget to compress your images for web before uploading because images is a 90% of page size in average. That's all, thank you for reading and happy coding!
